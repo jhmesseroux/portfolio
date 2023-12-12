@@ -1,27 +1,132 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --AppBg: #f7f7f7;
+  --brand-color: #8b55f5;
+  --brand-color-2: #f16fa1;
+
+  --dark-color: rgb(15 23 42);
+  --dark-color-box: rgba(20, 42, 59, 0.835);
+  --dark-text: rgb(148 163 184);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+html,
+body {
+  font-family: 'Roboto Slab';
+}
+
+/* width */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+html ::-webkit-scrollbar-track {
+  background: var(--AppBg);
+}
+
+/* Track */
+html.dark ::-webkit-scrollbar-track {
+  background: #030712;
+}
+
+/* Handle */
+html ::-webkit-scrollbar-thumb {
+  background: #d2d2d2;
+  border-radius: 50px;
+}
+
+html.dark ::-webkit-scrollbar-thumb {
+  background: #1e1e43;
+  border-radius: 50px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #5b687380;
+}
+
+html.dark ::-webkit-scrollbar-thumb:hover {
+  background: #132535;
+}
+
+.small-header {
+  animation: animate-header-dashboard linear both;
+  animation-range: 230px 500px;
+  animation-timeline: scroll(root);
+  background: initial;
+  opacity: 0;
+  height: 0;
+  transform: translateY(-100%);
+  z-index: 1;
+}
+
+@keyframes animate-header-dashboard {
+  to {
+    opacity: 1;
+    backdrop-filter: blur(12px);
+    box-shadow: 1px 1px 100px 0px rgba(0, 0, 0, 0.083);
+    height: initial;
+    transform: translateY(0);
+  }
+}
+.experience {
+  animation: animate-experience linear both;
+  animation-timeline: view();
+  animation-range: entry 10% cover 18%;
+  opacity: 0.5;
+  transform: scale(0.5);
+}
+
+@keyframes animate-experience {
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
 }
 
+.project {
+  animation: animate-project linear both;
+  animation-timeline: view();
+  animation-range: entry 18% cover 22%;
+  opacity: 0.5;
+  transform: scale(0.5);
+  transform: skew(10px);
+}
+
+@keyframes animate-project {
+  to {
+    opacity: 1;
+    transform: scale(1);
+    transform: skew(0deg, 0deg);
+  }
+}
+
+.mobile-sidebar.active {
+  display: block;
+}
+
+.mobile-sidebar {
+  display: none;
+}
+
+.modile-sidebar-container {
+  animation: animate-mobile-sidebar linear both;
+  opacity: 0.6;
+  transform: translateX(-100%);
+  animation-duration: 400ms;
+}
+
+@keyframes animate-mobile-sidebar {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+html,
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  scroll-behavior: smooth;
 }
