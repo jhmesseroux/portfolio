@@ -13,15 +13,10 @@ import ThemeContext from '@/context/ThemeContext'
 
 export const metadata: Metadata = {
   title: 'Portfolio | Jean Hilaire Messeroux',
-  description:
-    'Results-driven software engineer with over five years of experience, consistently delivering high-quality solutions.',
+  description: 'Results-driven software engineer with over five years of experience, consistently delivering high-quality solutions.',
 }
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang='en'>
       {/* <body className={inter.className}>{children}</body> */}
@@ -38,9 +33,7 @@ export default function RootLayout({
           <SmallHeader />
 
           <Header />
-          <main className='flex  flex-col  justify-between relative'>
-            {children}
-          </main>
+          <main className='flex  flex-col  justify-between relative'>{children}</main>
 
           <Footer />
           <MobileSideBar />

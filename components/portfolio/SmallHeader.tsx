@@ -8,12 +8,7 @@ import Link from 'next/link'
 interface Props extends React.HTMLAttributes<HTMLHtmlElement> {}
 const SmallHeader = ({ className }: Props) => {
   return (
-    <div
-      className={cn(
-        'small-header sticky top-0 p-3 flex items-center justify-between',
-        className
-      )}
-    >
+    <div className={cn('small-header sticky top-0 p-3 flex items-center justify-between bg-transparent', className)}>
       <div className='avatar flex items-center   gap-2 '>
         <Link href='/'>
           <Image

@@ -28,6 +28,7 @@ export interface Iproject {
 export interface ExperienceResponses {
   ok: boolean
   code: number
+  message: string
   status: string
   results: number
   data: Iexperience[]
@@ -53,6 +54,7 @@ export interface Iexperience {
 export interface SkillResponse {
   ok: boolean
   code: number
+  message: string
   status: string
   results: number
   data: ISkill[]

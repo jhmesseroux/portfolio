@@ -3,6 +3,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
 :root {
   --AppBg: #f7f7f7;
   --brand-color: #8b55f5;
@@ -55,7 +56,12 @@ html.dark ::-webkit-scrollbar-thumb:hover {
 .small-header {
   animation: animate-header-dashboard linear both;
   animation-range: 230px 500px;
+  /* apply for firefox */
   animation-timeline: scroll(root);
+  /* apply for chrome, safari and opera */
+  animation-timeline: scroll(document);
+
+
   background: initial;
   opacity: 0;
   height: 0;
@@ -67,11 +73,12 @@ html.dark ::-webkit-scrollbar-thumb:hover {
   to {
     opacity: 1;
     backdrop-filter: blur(12px);
-    box-shadow: 1px 1px 100px 0px rgba(0, 0, 0, 0.083);
+    /* box-shadow: 1px 1px 100px 0px rgba(0, 0, 0, 0.083); */
     height: initial;
     transform: translateY(0);
   }
 }
+
 .experience {
   animation: animate-experience linear both;
   animation-timeline: view();

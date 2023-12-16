@@ -8,7 +8,11 @@ export const metadata: Metadata = {
 }
 
 async function getData() {
-  const res = await fetch('http://localhost:4000/api/v1/skills')
+  const res = await fetch('http://localhost:4000/api/v1/skills', {
+    next: {
+      revalidate: 3600 * 24 * 30,
+    },
+  })
 
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary

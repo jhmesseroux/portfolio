@@ -9,7 +9,11 @@ export const metadata: Metadata = {
 }
 
 async function getData() {
-  const res = await fetch('http://localhost:4000/api/v1/experiences')
+  const res = await fetch('http://localhost:4000/api/v1/experiences', {
+    next: {
+      revalidate: 3600 * 24 * 7,
+    },
+  })
 
   if (!res.ok) {
     throw new Error('Failed to fetch data')
