@@ -1,15 +1,16 @@
 import Experiences from '@/components/portfolio/Experiences'
 import Projects from '@/components/portfolio/Projects'
+import { BASE_URL_API } from '@/constants'
 import { ExperienceResponses, ProjectResponse } from '@/interfaces'
 
 async function getData() {
   try {
-    const expResponse = fetch('http://localhost:4000/api/v1/experiences', {
+    const expResponse = fetch(BASE_URL_API + '/experiences', {
       next: {
         revalidate: 3600 * 24 * 7,
       },
     })
-    const projectResponse = fetch('http://localhost:4000/api/v1/projects')
+    const projectResponse = fetch(BASE_URL_API + '/projects')
     const [experiences, projects] = await Promise.all([expResponse, projectResponse])
 
     const exp: ExperienceResponses = await experiences.json()

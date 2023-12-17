@@ -1,4 +1,5 @@
 import Experiences from '@/components/portfolio/Experiences'
+import { BASE_URL_API } from '@/constants'
 import { ExperienceResponses } from '@/interfaces'
 import { Metadata } from 'next'
 import React from 'react'
@@ -9,7 +10,7 @@ export const metadata: Metadata = {
 }
 
 async function getData() {
-  const res = await fetch('http://localhost:4000/api/v1/experiences', {
+  const res = await fetch(BASE_URL_API + '/experiences', {
     next: {
       revalidate: 3600 * 24 * 7,
     },
