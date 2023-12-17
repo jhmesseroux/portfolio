@@ -27,7 +27,7 @@ const MobileSideBar = () => {
             </div>
           </div>
 
-          <Navbar />
+          <Navbar hiddenOnClick />
         </div>
         <div className='p-4 flex items-center justify-center gap-6 flex-col w-full'>
           <Medias />

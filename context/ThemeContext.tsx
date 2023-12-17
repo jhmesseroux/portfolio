@@ -13,11 +13,7 @@ const ThemeProvider = ({ children }: Props) => {
   const [theme, setTheme] = useState<'dark' | 'light' | null>(null)
 
   useLayoutEffect(() => {
-    if (
-      localStorage.theme === 'dark' ||
-      (!('theme' in localStorage) &&
-        window.matchMedia('(prefers-color-scheme: dark)').matches)
-    ) {
+    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
       document.documentElement.classList.add('dark')
       document.documentElement.classList.remove('light')
       setTheme('dark')
@@ -44,12 +40,10 @@ const ThemeProvider = ({ children }: Props) => {
 
   if (!theme)
     return (
-      <div className='w-full h-screen flex items-center  flex-col gap-2 justify-center'>
+      <div className='w-full h-screen flex items-center text-center flex-col gap-4 justify-center'>
         <SquareLoading />
         <div className=' '>
-          <span className=''>
-            System engineer | Javascript and PHP Fullstack developer
-          </span>
+          <span className=''>System engineer | Javascript and PHP Fullstack developer</span>
         </div>
       </div>
     )
