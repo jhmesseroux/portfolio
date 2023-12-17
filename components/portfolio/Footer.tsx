@@ -2,8 +2,6 @@ import React from 'react'
 import { CopyButton } from '..'
 import Medias from './Medias'
 import Link from 'next/link'
-const currentYear = new Date().getFullYear()
-const createdYear = 2024
 
 const Footer = () => {
   return (
@@ -42,18 +40,9 @@ const Footer = () => {
         </fieldset>
       </div>
       <div className='version flex items-center gap-3 flex-wrap justify-center'>
-        {[currentYear - 2, currentYear - 1, currentYear]
-          .filter((y) => y !== createdYear)
-          .map((year) => (
-            <Link
-              target='_blank'
-              className='text-xs hover:text-brand hover:underline'
-              href={'https://' + year + '.jhmesseroux.com'}
-              key={year}
-            >
-              <span>version-{year}</span>
-            </Link>
-          ))}
+        <Link target='_blank' className='text-xs hover:text-brand hover:underline' href={'https://previous.jhmesseroux.com'}>
+          <span>Previous Versions</span>
+        </Link>
         <span></span>
       </div>
     </footer>
