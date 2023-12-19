@@ -26,17 +26,16 @@ async function getData() {
 const Skills = async () => {
   const skills = await getData()
   return (
-    <div className='bg-red-100s max-w-3xl m-auto my-6 p-6'>
+    <div className=' w-full md:max-w-3xl m-auto my-6 p-6 '>
       <SkillsBox skills={skills.data} />
 
-      <div className='skills flex flex-wrap items-center justify-center gap-3 mt-6 '>
+      <div className='skills flex flex-wrap items-center justify-center gap-4 mt-6 '>
         {skills.data.map((skill, index) => (
-          <span
-            key={index}
-            className='skill border border-slate-300 dark:border-slate-700 py-1.5 px-3  duration-150 transition-colors to-slate-700 dark:to-slate-400 cursor-pointer hover:text-white  text-base hover:bg-brand rounded-lg'
-          >
-            {skill.name}
-          </span>
+          <div className='rounded-lg animatedBorder' data-border='thin' data-blur='big' key={index}>
+            <div className='skill  border bg-white  dark:bg-slate-950  border-slate-300 dark:border-slate-700 py-1.5 px-3 cursor-pointer  text-base rounded-lg '>
+              {skill.name}
+            </div>
+          </div>
         ))}
       </div>
     </div>
