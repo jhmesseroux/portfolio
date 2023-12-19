@@ -12,11 +12,14 @@
   --dark-color: rgb(15 23 42);
   --dark-color-box: rgba(20, 42, 59, 0.835);
   --dark-text: rgb(148 163 184);
+  --border-width: -2px
 }
 
 html,
 body {
   font-family: 'Roboto Slab';
+  scroll-behavior: smooth;
+
 }
 
 /* width */
@@ -133,7 +136,156 @@ html.dark ::-webkit-scrollbar-thumb:hover {
   }
 }
 
-html,
-body {
-  scroll-behavior: smooth;
+
+.scroller__inner {
+  padding-block: 1rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.scroller[data-animated="true"] {
+  overflow: hidden;
+  -webkit-mask: linear-gradient(90deg,
+      transparent,
+      white 20%,
+      white 80%,
+      transparent);
+  mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
+}
+
+.scroller[data-animated="true"] .scroller__inner {
+  width: max-content;
+  flex-wrap: nowrap;
+  animation: scroll var(--_animation-duration, 40s) var(--_animation-direction, forwards) linear infinite;
+}
+
+.scroller[data-direction="right"] {
+  --_animation-direction: reverse;
+}
+
+.scroller[data-direction="left"] {
+  --_animation-direction: forwards;
+}
+
+.scroller[data-speed="fast"] {
+  --_animation-duration: 20s;
+}
+
+.scroller[data-speed="slow"] {
+  --_animation-duration: 60s;
+}
+
+@keyframes scroll {
+  to {
+    transform: translate(calc(-50% - 0.5rem));
+  }
+}
+
+
+/*  */
+
+.education-item {
+  position: relative;
+}
+
+.education-item::before {
+  content: '';
+  position: absolute;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  top: -2px;
+  z-index: -1;
+}
+
+.education-item::after {
+  content: '';
+  position: absolute;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  top: -2px;
+  z-index: -2;
+  filter: blur(20px);
+}
+
+.education-item::after,
+.education-item::before {
+  background: linear-gradient(45deg, #8b55f5, #f16fa1);
+  opacity: 0.2;
+  border-radius: inherit;
+  /* transition: all 0.3s ease-in-out; */
+  transition: all 3s ease-in-out;
+}
+
+/* ANIMATED BORDER */
+
+.animatedBorder {
+  position: relative;
+  background: transparent;
+}
+
+.animatedBorder[data-border="thin"] {
+  --border-width: -1px;
+}
+
+.animatedBorder[data-border="small"] {
+  --border-width: -2px;
+}
+
+.animatedBorder[data-border="big"] {
+  --border-width: -4px;
+}
+
+
+.animatedBorder[data-blur="none"] {
+  --border-blur: 0px;
+}
+
+.animatedBorder[data-blur="thin"] {
+  --border-blur: 5px;
+}
+
+.animatedBorder[data-blur="small"] {
+  --border-blur: 10px;
+}
+
+.animatedBorder[data-blur="big"] {
+  --border-blur: 20px;
+}
+
+
+.animatedBorder::before,
+.animatedBorder::after {
+  content: '';
+  position: absolute;
+  left: var(--border-width);
+  right: var(--border-width);
+  bottom: var(--border-width);
+  top: var(--border-width);
+  background-color: #fff;
+}
+
+.animatedBorder::before {
+  z-index: -1;
+}
+
+.animatedBorder::after {
+  z-index: -2;
+  background-color: #fff;
+  filter: blur(var(--border-blur, 10px));
+}
+
+.animatedBorder::after,
+.animatedBorder::before {
+  background: linear-gradient(245deg, #8b55f5, #f16fa1);
+  opacity: 0;
+  border-radius: inherit;
+  transition: opacity 0.4s ease-in-out;
+}
+
+.animatedBorder:hover::before,
+.animatedBorder:hover::after {
+  opacity: 1;
 }

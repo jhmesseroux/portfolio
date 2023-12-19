@@ -1,6 +1,6 @@
 'use client'
 import { SquareLoading } from '@/components'
-import React, { createContext, useLayoutEffect, useState } from 'react'
+import React, { createContext, useEffect, useLayoutEffect, useState } from 'react'
 interface Props extends React.HTMLAttributes<HTMLDivElement> {}
 
 export interface ThemeContextProps {
@@ -13,6 +13,7 @@ const ThemeProvider = ({ children }: Props) => {
   const [theme, setTheme] = useState<'dark' | 'light' | null>(null)
 
   useLayoutEffect(() => {
+    console.log('object')
     if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
       document.documentElement.classList.add('dark')
       document.documentElement.classList.remove('light')

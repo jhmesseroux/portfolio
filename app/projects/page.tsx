@@ -12,7 +12,7 @@ export const metadata: Metadata = {
 async function getData() {
   const res = await fetch(BASE_URL_API + '/projects', {
     next: {
-      revalidate: 3600 * 24 * 7,
+      revalidate: 60 * 5,
     },
   })
 
@@ -25,7 +25,7 @@ async function getData() {
 const Skills = async () => {
   const projects = await getData()
   return (
-    <div className='bg-red-100s max-w-3xl m-auto my-6 p-6'>
+    <div className='bg-red-100s max-w-5xl m-auto my-6 p-6'>
       <Projects data={projects.data} />
     </div>
   )

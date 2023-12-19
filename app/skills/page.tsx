@@ -2,6 +2,7 @@ import { BASE_URL_API } from '@/constants'
 import { SkillResponse } from '@/interfaces'
 import { Metadata } from 'next'
 import React from 'react'
+import SkillsBox from './SkillsBox'
 
 export const metadata: Metadata = {
   title: 'Portfolio | Jean Hilaire Messeroux | Skills',
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
 async function getData() {
   const res = await fetch(BASE_URL_API + '/skills', {
     next: {
-      revalidate: 3600 * 24 * 30,
+      revalidate: 60 * 5,
     },
   })
 
@@ -26,7 +27,9 @@ const Skills = async () => {
   const skills = await getData()
   return (
     <div className='bg-red-100s max-w-3xl m-auto my-6 p-6'>
-      <div className='skills flex flex-wrap items-center justify-center gap-3'>
+      <SkillsBox skills={skills.data} />
+
+      <div className='skills flex flex-wrap items-center justify-center gap-3 mt-6 '>
         {skills.data.map((skill, index) => (
           <span
             key={index}

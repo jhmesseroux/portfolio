@@ -17,8 +17,9 @@ export interface Iproject {
   startYear: number
   endMonth: string
   endYear: number
-  demoLink: string
+  demoLink: string | null
   gitBack: string
+  current: boolean
   gitFront: string
   collaborators: string[]
   createdAt: string
@@ -46,6 +47,7 @@ export interface Iexperience {
   startYear: number
   endYear: number
   skills: string[]
+  demoLink: string | null
   current: boolean
   createdAt: string
   updatedAt: string
@@ -65,4 +67,35 @@ export interface ISkill {
   name: string
   createdAt: string
   updatedAt: string
+}
+
+export interface EducationResponse {
+  ok: boolean
+  code: number
+  status: string
+  results: number
+  data: IEducation[]
+}
+
+export interface IEducation {
+  id: number
+  name: string
+  degree: null | string
+  startMonth: string
+  endMonth: null | string
+  startYear: number
+  endYear: number | null
+  current: boolean
+  skills: string[]
+  location: null | string
+  organization: Organization | null
+  credentialUrl: null | string
+  type: string
+  createdAt: Date
+  updatedAt: Date
+}
+
+export interface Organization {
+  url: string
+  name: string
 }

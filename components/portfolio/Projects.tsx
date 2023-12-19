@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
-import { Skill, LinkIcon, GithubIcon, StarIcon } from '..'
+import { Skill, LinkIcon, GithubIcon, StarIcon, ExternalLinkIcon } from '..'
 import Image from 'next/image'
 import { Iproject } from '@/interfaces'
 import { cn } from '@/helpers'
@@ -27,9 +27,7 @@ const Projects = ({ data, showAll = false, className, ...rest }: Props) => {
     <section {...rest} className={cn('projects-container mt-8 p-4', className)}>
       <div className='flex items-center justify-between gap-3 flex-wrap'>
         <div className='projects-header flex items-center gap-2 sm:gap-8'>
-          <span className='text-lg sm:text-3xl text-brand font-extrabold'>
-            Projects
-          </span>
+          <span className='text-lg sm:text-3xl text-brand font-extrabold'>Projects</span>
           <StarIcon />
         </div>
         {showAll && (
@@ -40,10 +38,7 @@ const Projects = ({ data, showAll = false, className, ...rest }: Props) => {
       </div>
       <div className='projects flex flex-col gap-6 my-6' id='projects'>
         {data.map((item) => (
-          <div
-            key={item.title}
-            className='project h-auto w-full flex flex-col sm:flex-row gap-4 group cursor-pointer overflow-hidden'
-          >
+          <div key={item.title} className='project h-auto w-full flex flex-col sm:flex-row gap-4 group cursor-pointer overflow-hidden'>
             <div className='project-photo overflow-hidden object-cover w-full sm:w-[350px] bg-blue-600  h-[250px] relative'>
               <Image
                 src={item.photo}
@@ -61,24 +56,16 @@ const Projects = ({ data, showAll = false, className, ...rest }: Props) => {
               </h3>
               <div className='flex items-center  gap-2'>
                 <span className='date text-sm text-slate-600 dark:text-slate-400 '>
-                  {item.startMonth} {item.startYear} - {item.endMonth}{' '}
-                  {item.endYear}
+                  {item.startMonth} {item.startYear} - {!item.current ? item.endMonth + ' ' + item.endYear : 'Present'}
                 </span>
                 <span>|</span>
-                <span className={levelColor(item.level) + ' text-sm'}>
-                  {item.level}
-                </span>
+                <span className={levelColor(item.level) + ' text-sm'}>{item.level}</span>
               </div>
               <div dangerouslySetInnerHTML={{ __html: item.description }} />
               <div className='skills flex  gap-[2px] flex-wrap'>
                 <span className='text-xs'>Skills : </span>
                 {item.skills.map((skill, index) => (
-                  <Skill
-                    key={skill}
-                    skill={
-                      skill + (item.skills.length !== index + 1 ? ' | ' : '')
-                    }
-                  />
+                  <Skill key={skill} skill={skill + (item.skills.length !== index + 1 ? ' | ' : '')} />
                 ))}
               </div>
               <div className='project-actions mt-3 flex items-center gap-2 flex-wrap'>
@@ -90,6 +77,7 @@ const Projects = ({ data, showAll = false, className, ...rest }: Props) => {
                   >
                     <LinkIcon />
                     <span>Demo</span>
+                    <ExternalLinkIcon className='w-4' />
                   </a>
                 )}
 

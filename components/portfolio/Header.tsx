@@ -1,5 +1,5 @@
 import React from 'react'
-import { DownloadIcon, LinkIcon } from '..'
+import { DownloadIcon, ExternalLinkIcon, LinkIcon } from '..'
 import Image from 'next/image'
 import OpenModalButton from './OpenModalButton'
 import Link from 'next/link'
@@ -33,7 +33,7 @@ const Header = () => {
           <a
             href='/assets/Resume-Jean-Hilaire--Messeroux-12-2023.pdf'
             download
-            className='bg-violet-600 py-1.5 px-2.5 rounded-full flex items-center gap-0.5 shadow text-white dark:text-slate-400 dark:bg-transparent dark:border-violet-300 dark:border-[1px] dark:hover:bg-brand dark:hover:text-white dark:hover:border-brand duration-500 transition-colors'
+            className='bg-violet-600 py-2 px-3.5 rounded-full flex items-center gap-0.5 shadow text-white dark:text-slate-400 dark:bg-transparent dark:border-violet-300 dark:border-[1px] dark:hover:bg-brand dark:hover:text-white dark:hover:border-brand duration-500 transition-colors'
           >
             <DownloadIcon />
             <span>Resume</span>
@@ -41,10 +41,11 @@ const Header = () => {
           <a
             href='https://www.linkedin.com/in/jhmesseroux/'
             target='_blank'
-            className='bg-blue-600 py-1.5 px-2.5 flex items-center gap-0.5 rounded-full shadow text-white dark:text-slate-400 dark:bg-transparent dark:border-sky-300 dark:border-[1px] dark:hover:bg-blue-500 dark:hover:text-white dark:hover:border-brand duration-500 transition-colors'
+            className='bg-blue-600 py-2 px-3.5 flex items-center gap-1 rounded-full shadow text-white dark:text-slate-400 dark:bg-transparent dark:border-sky-300 dark:border-[1px] dark:hover:bg-blue-500 dark:hover:text-white dark:hover:border-brand duration-500 transition-colors'
           >
             <LinkIcon />
             <span>Linkedin</span>
+            <ExternalLinkIcon />
           </a>
         </div>
       </div>
