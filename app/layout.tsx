@@ -27,7 +27,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           type='image/x-icon'
         />
       </head>
-      <body className='bg-slate-50 max-w-5xl relative m-auto min-h-screen flex flex-col justify-between dark:bg-slate-950 text-slate-700 dark:text-slate-400'>
+      <body className='bg-[#f8f8f8] max-w-6xl relative m-auto min-h-screen flex flex-col justify-between dark:bg-slate-950 text-slate-700 dark:text-slate-400'>
         <ThemeContext>
           <ThemeSwitcher className='absolute right-12  top-3 ' />
           <SmallHeader />

@@ -10,15 +10,17 @@ const SmallHeader = ({ className }: Props) => {
   return (
     <div className={cn('small-header sticky top-0 p-3 flex items-center justify-between bg-transparent', className)}>
       <div className='avatar flex items-center   gap-2 '>
-        <Link href='/'>
-          <Image
-            src={'/assets/images/avatar.png'}
-            className=' rounded-full border-[1px] border-slate-100 dark:border-slate-700 shadow-md '
-            alt='Avatar Jn. H. Messeroux '
-            width={50}
-            height={50}
-          />
-        </Link>
+        {/* <Link href='/' className=''>
+          <div className='avatar border-[0px] border-slate-100 dark:border-brand  rounded-full overflow-hidden w-[220px] h-[220px] shadow'>
+            <Image
+              src={'/assets/images/me.png'}
+              className=' rounded-full border-[1px] border-slate-100 dark:border-slate-700 shadow-md '
+              alt='Avatar Jn. H. Messeroux '
+              width={50}
+              height={50}
+            />
+          </div>
+        </Link> */}
         <div className='flex flex-col '>
           <Link href='/'>
             <span className=''>Jean H. Messeroux</span>

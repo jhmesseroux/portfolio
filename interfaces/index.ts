@@ -3,10 +3,11 @@ export interface ProjectResponse {
   code: number
   status: string
   message: string
-  data: Iproject[]
+  results: number
+  data: IProject[]
 }
 
-export interface Iproject {
+export interface IProject {
   id: number
   level: string
   title: string
@@ -32,14 +33,15 @@ export interface ExperienceResponses {
   message: string
   status: string
   results: number
-  data: Iexperience[]
+  data: IExperience[]
 }
 
-export interface Iexperience {
+export interface IExperience {
   id: number
   title: string
   experienceType: string
   companyName: string
+  companyLink: string
   description: string
   location: string
   startMonth: string

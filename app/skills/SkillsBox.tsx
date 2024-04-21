@@ -5,7 +5,6 @@ import React, { useEffect } from 'react'
 
 const SkillsBox = ({ skills }: { skills: ISkill[] }) => {
   useEffect(() => {
-    console.log('entro....')
     const scrollers = document.querySelectorAll('.scroller')
 
     // If a user hasn't opted in for recuded motion, then we add the animation

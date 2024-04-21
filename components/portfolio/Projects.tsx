@@ -2,11 +2,11 @@ import Link from 'next/link'
 import React from 'react'
 import { Skill, LinkIcon, GithubIcon, StarIcon, ExternalLinkIcon } from '..'
 import Image from 'next/image'
-import { Iproject } from '@/interfaces'
+import { IProject } from '@/interfaces'
 import { cn } from '@/helpers'
 import SocialLink from './SocialLink'
 interface Props extends React.HTMLAttributes<HTMLHtmlElement> {
-  data: Iproject[]
+  data: IProject[]
   showAll?: boolean
 }
 const Projects = ({ data, showAll = false, className, ...rest }: Props) => {
@@ -38,7 +38,7 @@ const Projects = ({ data, showAll = false, className, ...rest }: Props) => {
       </div>
       <div className='projects flex flex-col gap-6 my-6' id='projects'>
         {data.map((item) => (
-          <div key={item.title} className='project h-auto w-full flex flex-col sm:flex-row gap-4 group cursor-pointer overflow-hidden'>
+          <div key={item.title} className='project h-auto w-full flex flex-col sm:flex-row gap-4 group cursor-pointer overflow-hidden pb-6'>
             <div className='project-photo overflow-hidden object-cover w-full sm:w-[350px] bg-blue-600  h-[250px] relative'>
               <Image
                 src={item.photo}
@@ -73,7 +73,7 @@ const Projects = ({ data, showAll = false, className, ...rest }: Props) => {
                   <a
                     href={item.demoLink}
                     target='_blank'
-                    className='hover:bg-brand border-brand border-[1px] text-brand flex items-center w-fit gap-1 hover:text-white duration-300 transition-colors px-2.5 py-1.5 rounded-full shadow'
+                    className='hover:border-none border-brand border-[1px] text-brand flex items-center w-fit gap-1 hover:text-white duration-300 transition-colors px-2.5 py-1.5 rounded-[4px] shadow animatedBorder'
                   >
                     <LinkIcon />
                     <span>Demo</span>
@@ -84,7 +84,7 @@ const Projects = ({ data, showAll = false, className, ...rest }: Props) => {
                 {item.gitBack && (
                   <SocialLink
                     Icon={GithubIcon}
-                    className='border-slate-500 hoverLborder-brand hover:bg-slate-800'
+                    className='border-slate-500 hover:border-brand hover:bg-slate-800 animatedBorder'
                     title='Github API'
                     to={item.gitBack}
                   />
@@ -92,7 +92,7 @@ const Projects = ({ data, showAll = false, className, ...rest }: Props) => {
                 {item.gitFront && (
                   <SocialLink
                     Icon={GithubIcon}
-                    className='border-slate-500 hoverLborder-brand hover:bg-slate-800'
+                    className='border-slate-500 hover:border-brand hover:bg-slate-800 animatedBorder'
                     title='Github WEB'
                     to={item.gitFront}
                   />

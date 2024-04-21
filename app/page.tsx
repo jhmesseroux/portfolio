@@ -48,9 +48,9 @@ async function getData() {
 export default async function Home() {
   const data = await getData()
   return (
-    <>
-      <Experiences data={data?.experiences.data.slice(0, 5) || []} showAll={data ? data?.experiences?.data?.length > 5 : false} />
-      <Projects data={data?.projects.data.slice(0, 5) || []} showAll={data ? data.experiences.data.length > 5 : false} />
+    <div className=''>
+      <Experiences data={data?.experiences.data.slice(0, 5) || []} showAll={data?.experiences?.results > 5} />
+      <Projects data={data?.projects.data.slice(0, 5) || []} showAll={data.projects?.results > 5} />
 
       <div className='educations my-8 p-4'>
         <div className='projects-header flex items-center  gap-4'>
@@ -64,9 +64,9 @@ export default async function Home() {
             .map((education, index) => (
               <div
                 key={index}
-                className='w-full md:w-[300px] hover:border rounded-lg hover:shadow  border-slate-300 dark:border-slate-700 hover:border-brand dark:hover:border-brand'
+                className='w-full bg-white dark:bg-slate-900 md:w-[350px] hover:border-l-8 rounded-[4px] hover:shadow  border-slate-300 dark:border-slate-700 hover:border-brand dark:hover:border-brand flex-grow'
               >
-                <div className='education     p-6 flex flex-col gap-3 h-full  hover:skew-y-1 hover:skew-x-1 duration-700 transition-transform cursor-pointer  group hover:scale-105 '>
+                <div className='education p-8 flex flex-col gap-3 h-full  hover:skew-y-1  duration-700 transition-transform cursor-pointer  group hover:scale-105 '>
                   <div className='education-title'>
                     <h3 className='education-name text-2xl sm:text-3xl font-semibold group-hover:text-brand'>{education.degree}</h3>
                   </div>
@@ -88,18 +88,18 @@ export default async function Home() {
           <span className='text-lg sm:text-3xl text-brand font-extrabold'>Certifications and Licenses</span>
           <CertificationIcon />
         </div>
-        <div className='certifications-content flex items-center gap-12 mt-6 flex-wrap'>
+        <div className='certifications-content flex  gap-8 mt-6 flex-wrap'>
           {data?.educations.data
             .filter((ed) => ed.type !== 'education')
             .sort((a, b) => a.startYear - b.startYear)
             .map((education, index) => (
               <div
-                className='certification-item rounded-lg w-full md:w-[350px]  animatedBorder'
+                className='certification-item rounded-lg w-full md:w-[350px]  animatedBorder flex-grow'
                 data-border='thin'
-                key={index}
                 data-blur='none'
+                key={index}
               >
-                <div className='rounded-lg border-[1px] bg-white  dark:bg-slate-950 p-6 flex flex-col gap-3 border-slate-300 dark:border-sky-700 dark:border-opacity-25   duration-700 transition-all cursor-pointer hover:border-none group  '>
+                <div className='rounded-lg border-[1px] bg-white  dark:bg-slate-950 p-6 flex flex-col gap-3 border-slate-300 dark:border-sky-700 dark:border-opacity-25   duration-700 transition-all cursor-pointer hover:border-none group h-full '>
                   <div>
                     <h3 className='certifications-name text-2xl sm:text-3xl font-semibold '>{education.name}</h3>
                     <a
@@ -110,7 +110,7 @@ export default async function Home() {
                       <h3 className='certifications-org-name text-base mt-1'> {education.organization?.name}</h3>
                     </a>
                   </div>
-                  <div className='education-date flex items-center gap-3 '>
+                  <div className='education-date flex items-start justify-start flex-1 gap-3 '>
                     <span className='education-date text-slate-700 dark:text-slate-400 text-sm text-opacity-90 dark:text-opacity-80'>
                       Issued {education.startMonth + '-' + education.startYear}
                     </span>
@@ -119,7 +119,7 @@ export default async function Home() {
                   <a
                     href={education.credentialUrl!}
                     target='_blank'
-                    className='group-hover:text-sky-500 hover:underline flex items-center justify-center hover:border-sky-500  dark:hover:border-sky-600  border border-slate-300 dark:border-slate-700 w-fit rounded-full py-2 px-3 gap-1 duration-700 transition-color'
+                    className='group-hover:text-sky-500 hover:underline flex items-center justify-center hover:border-sky-500  dark:hover:border-sky-600  border border-slate-300 dark:border-slate-900 w-fit rounded-[4px] py-2 px-3 gap-1 duration-700 transition-color '
                   >
                     <h3 className='education-credential-url text-sm'> Show Credential</h3>
                     <ExternalLinkIcon />
@@ -129,6 +129,6 @@ export default async function Home() {
             ))}
         </div>
       </div>
-    </>
+    </div>
   )
 }

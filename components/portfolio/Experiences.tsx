@@ -2,9 +2,9 @@ import React from 'react'
 import { BriefCaseIcon, Skill } from '..'
 import Link from 'next/link'
 import { cn } from '@/helpers'
-import { Iexperience } from '@/interfaces'
+import { IExperience } from '@/interfaces'
 interface Props extends React.HTMLAttributes<HTMLHtmlElement> {
-  data: Iexperience[]
+  data: IExperience[]
   showAll?: boolean
 }
 
@@ -22,10 +22,10 @@ const Experiences = ({ data, showAll = false, className, ...rest }: Props) => {
           </Link>
         )}
       </div>
-      <div className='experiences flex flex-col gap-6 my-6 divide-y-[1px]s divide-slate-300 dark:divide-slate-700' id='experiences'>
+      <div className='experiences flex  gap-6 my-6 divide-y-[1px]s divide-slate-300 dark:divide-slate-700 flex-col' id='experiences'>
         {data.map((item) => (
-          <div key={item.title} className='animatedBorder rounded-lg' data-border='thin' data-blur='thin'>
-            <div className='flex flex-col gap-2  experience group cursor-pointer hover:shadow p-4 rounded-lg bg-slate-50 dark:bg-slate-950 '>
+          <div key={item.title} className='rounded-lg animatedBorder  flex-grow ' data-border='thin' data-blur='none'>
+            <div className='flex flex-col gap-2  experience group cursor-pointer hover:shadow p-6 rounded-lg bg-white dark:bg-slate-950 h-full border border-state-300 dark:border-slate-800 '>
               <h3 className=' flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-4 text-slate-700 dark:text-slate-500 group-hover:text-brand dark:group-hover:text-violet-500 duration-500 transition-colors'>
                 {item.demoLink ? (
                   <Link href={item.demoLink} target='_blank'>
@@ -34,18 +34,23 @@ const Experiences = ({ data, showAll = false, className, ...rest }: Props) => {
                 ) : (
                   <span className='font-bold text-lg sm:text-2xl'>{item.title}</span>
                 )}
-                <span>{item.location ?? ''}</span>
               </h3>
-              <h5 className='sm:text-lg text-base'>
-                {item.companyName ? item.companyName + '|' : ''} <span className=''> {item.experienceType}</span>
+              <h5 className='flex items-center justify-between'>
+                <div className='flex items-center gap-1 '>
+                  <Link href={item?.companyLink || ''} className='group-hover:underline' target='_blank'>
+                    <span className=''>{item.companyName}</span>
+                  </Link>
+                  <span className=''> {' | ' + item.experienceType}</span>
+                </div>
+                <span className='text-sm text-violet-400'>{item.location}</span>
               </h5>
-              <div className='date text-sm text-slate-600 dark:text-slate-400 dark:text-opacity-60 '>
+              <div className='date text-sm text-slate-600 dark:text-slate-400 dark:text-opacity-60 group-hover:text-brand2 '>
                 <span>
                   {item.startMonth} {item.startYear} - {!item.current ? item.endMonth + ' ' + item.endYear : 'Present'}
                 </span>
               </div>
 
-              <div className='px-2' dangerouslySetInnerHTML={{ __html: item.description }} />
+              <div className='' dangerouslySetInnerHTML={{ __html: item.description }} />
               <div className='skills flex  gap-[2px] flex-wrap divide-x-2s divide-slate-300 dark:divide-slate-700'>
                 <span className='text-xs'>Skills : </span>
                 {item.skills.map((skill, index) => (

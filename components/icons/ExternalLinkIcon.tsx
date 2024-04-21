@@ -8,8 +8,8 @@ const ExternalLinkIcon = ({ className, ...rest }: Props) => {
       xmlns='http://www.w3.org/2000/svg'
       className={cn('icon icon-tabler icon-tabler-external-link relative -top-0.5', className)}
       {...rest}
-      width={24}
-      height={24}
+      width={12}
+      height={12}
       viewBox='0 0 24 24'
       strokeWidth={1}
       stroke='currentColor'
