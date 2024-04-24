@@ -35,12 +35,13 @@ const Experiences = ({ data, showAll = false, className, ...rest }: Props) => {
                   <span className='font-bold text-lg sm:text-2xl'>{item.title}</span>
                 )}
               </h3>
-              <h5 className='flex items-center justify-between'>
+              <h5 className='flex sm:items-center  flex-col sm:flex-row justify-between'>
                 <div className='flex items-center gap-1 '>
                   <Link href={item?.companyLink || ''} className='group-hover:underline' target='_blank'>
                     <span className=''>{item.companyName}</span>
                   </Link>
-                  <span className=''> {' | ' + item.experienceType}</span>
+                  {' | '}
+                  <span className='group-hover:text-brand'> {item.experienceType}</span>
                 </div>
                 <span className='text-sm text-violet-400'>{item.location}</span>
               </h5>
@@ -50,7 +51,7 @@ const Experiences = ({ data, showAll = false, className, ...rest }: Props) => {
                 </span>
               </div>
 
-              <div className='' dangerouslySetInnerHTML={{ __html: item.description }} />
+              <div className='list-inside' dangerouslySetInnerHTML={{ __html: item.description }} />
               <div className='skills flex  gap-[2px] flex-wrap divide-x-2s divide-slate-300 dark:divide-slate-700'>
                 <span className='text-xs'>Skills : </span>
                 {item.skills.map((skill, index) => (
