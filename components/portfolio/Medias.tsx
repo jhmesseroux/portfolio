@@ -1,19 +1,11 @@
 import React from 'react'
-import {
-  YoutubeIcon,
-  GithubIcon,
-  LinkedinIcon,
-  InstagramIcon,
-  TelegramIcon,
-} from '..'
+import { YoutubeIcon, GithubIcon, LinkedinIcon, InstagramIcon, TelegramIcon } from '..'
 import SocialLink from './SocialLink'
 
 const Medias = () => {
   return (
     <div className='red-socials  flex flex-col items-center'>
-      <h3 className='text-brand2 dark:text-slate-500 text-lg sm:text-2xl font-semibold mb-3'>
-        Medias
-      </h3>
+      <h3 className='text-brand2 dark:text-slate-500 text-lg sm:text-2xl font-semibold mb-3'>Medias</h3>
       <div className='links-medias flex items-center gap-4 flex-wrap'>
         <SocialLink
           Icon={YoutubeIcon}
@@ -23,7 +15,7 @@ const Medias = () => {
         />
         <SocialLink
           Icon={GithubIcon}
-          className='border-slate-500 hoverLborder-brand hover:bg-slate-800'
+          className='border-slate-500 hover:border-brand hover:bg-slate-800'
           title='Github'
           to='https://github.com/jhmesseroux'
         />
@@ -43,7 +35,7 @@ const Medias = () => {
           Icon={TelegramIcon}
           className='border-sky-500 text-sky-500 hover:bg-sky-600'
           title='Telegram'
-          to='https://www.instagra,.com/jhmesseroux/'
+          to='https://t.me/jhmesseroux'
         />
       </div>
     </div>
