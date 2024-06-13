@@ -10,7 +10,7 @@ export interface ThemeContextProps {
 export const ThemeContext = createContext({} as ThemeContextProps)
 
 const ThemeProvider = ({ children }: Props) => {
-  const [theme, setTheme] = useState<'dark' | 'light' | null>(null)
+  const [theme, setTheme] = useState<'dark' | 'light' | null>('light')
 
   useLayoutEffect(() => {
     if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -52,7 +52,7 @@ const ThemeProvider = ({ children }: Props) => {
     <ThemeContext.Provider
       value={{
         theme,
-        toggleTheme,
+        toggleTheme
       }}
     >
       {children}

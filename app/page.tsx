@@ -1,37 +1,31 @@
-import { CertificationIcon, EducationIcon, ExternalLinkIcon, StarIcon } from '@/components'
+import CallToAction from '@/components/portfolio/CallToAction'
+import CertificationsAndLicenses from '@/components/portfolio/CertificationsAndLicenses'
+import Educations from '@/components/portfolio/Educations'
 import Experiences from '@/components/portfolio/Experiences'
 import Projects from '@/components/portfolio/Projects'
-import { BASE_URL_API } from '@/constants'
-import { EducationResponse, ExperienceResponses, ProjectResponse } from '@/interfaces'
+import Recommendations from '@/components/portfolio/Recommendations'
+import { EducationResponse, ExperienceResponses, ProjectResponse, ReviewResponse } from '@/interfaces'
 
 async function getData() {
   try {
-    const expResponse = fetch(BASE_URL_API + '/experiences', {
-      next: {
-        revalidate: 60 * 5,
-      },
-    })
-    const projectResponse = fetch(BASE_URL_API + '/projects', {
-      next: {
-        revalidate: 60 * 5,
-      },
-    })
-
-    const educationResponse = fetch(BASE_URL_API + '/educations', {
-      next: {
-        revalidate: 60 * 5,
-      },
-    })
-
-    const [experiences, projects, educations] = await Promise.all([expResponse, projectResponse, educationResponse])
-
+    const expResponse = fetch(process.env.NEXT_PUBLIC_API_URL + '/experiences')
+    const projectResponse = fetch(process.env.NEXT_PUBLIC_API_URL + '/projects')
+    const educationResponse = fetch(process.env.NEXT_PUBLIC_API_URL + '/educations')
+    const reviewResponse = fetch(process.env.NEXT_PUBLIC_API_URL + '/reviews')
+    const [experiences, projects, educations, reviews] = await Promise.all([
+      expResponse,
+      projectResponse,
+      educationResponse,
+      reviewResponse
+    ])
     const exp: ExperienceResponses = await experiences.json()
     const pro: ProjectResponse = await projects.json()
     const edu: EducationResponse = await educations.json()
+    const rev: ReviewResponse = await reviews.json()
 
     if (!exp.ok || !pro.ok) {
       const er = new Error('Error', {
-        cause: 'cause of the error',
+        cause: 'cause of the error'
       })
       er.name = 'CONNECTION_ERROR'
       er.message = exp.message + '. ' + pro.message
@@ -39,7 +33,7 @@ async function getData() {
       er.code = exp.code
       throw er
     }
-    return { experiences: exp, projects: pro, educations: edu }
+    return { experiences: exp, projects: pro, educations: edu, reviews: rev }
   } catch (error) {
     throw error
   }
@@ -49,86 +43,12 @@ export default async function Home() {
   const data = await getData()
   return (
     <div className=''>
-      <Experiences data={data?.experiences.data.slice(0, 5) || []} showAll={data?.experiences?.results > 5} />
-      <Projects data={data?.projects.data.slice(0, 5) || []} showAll={data.projects?.results > 5} />
-
-      <div className='educations my-8 p-4'>
-        <div className='projects-header flex items-center  gap-4'>
-          <span className='text-lg sm:text-3xl text-brand font-extrabold'>Educations</span>
-          <EducationIcon className='' />
-        </div>
-        <div className='educations-content flex  gap-8 mt-6 flex-wrap'>
-          {data?.educations.data
-            .filter((ed) => ed.type === 'education')
-            .sort((a, b) => a.startYear - b.startYear)
-            .map((education, index) => (
-              <div
-                key={index}
-                className='w-full bg-white dark:bg-slate-900 md:w-[350px] hover:border-l-8 rounded-[4px] hover:shadow  border-slate-300 dark:border-slate-700 hover:border-brand dark:hover:border-brand flex-grow'
-              >
-                <div className='education p-8 flex flex-col gap-3 h-full  hover:skew-y-1  duration-700 transition-transform cursor-pointer  group hover:scale-105 '>
-                  <div className='education-title'>
-                    <h3 className='education-name text-2xl sm:text-3xl font-semibold group-hover:text-brand'>{education.degree}</h3>
-                  </div>
-                  <div className='education-name'>
-                    <h3 className='education-name text-lg'>{education.name}</h3>
-                  </div>
-                  <div className='education-date flex items-center gap-3 group-hover:text-brand2 text-sm'>
-                    <span className='education-date'>{education.startMonth + '-' + education.startYear}</span>
-                    <span className='education-date'>{education.endMonth + '-' + education.endYear}</span>
-                  </div>
-                </div>
-              </div>
-            ))}
-        </div>
-      </div>
-
-      <div className='certifications-and-licenses my-8 p-4 '>
-        <div className='certifications-header flex items-center gap-4'>
-          <span className='text-lg sm:text-3xl text-brand font-extrabold'>Certifications and Licenses</span>
-          <CertificationIcon />
-        </div>
-        <div className='certifications-content flex  gap-8 mt-6 flex-wrap'>
-          {data?.educations.data
-            .filter((ed) => ed.type !== 'education')
-            .sort((a, b) => a.startYear - b.startYear)
-            .map((education, index) => (
-              <div
-                className='certification-item rounded-lg w-full md:w-[350px]  animatedBorder flex-grow'
-                data-border='thin'
-                data-blur='none'
-                key={index}
-              >
-                <div className='rounded-lg border-[1px] bg-white  dark:bg-slate-950 p-6 flex flex-col gap-3 border-slate-300 dark:border-sky-700 dark:border-opacity-25   duration-700 transition-all cursor-pointer hover:border-none group h-full '>
-                  <div>
-                    <h3 className='certifications-name text-2xl sm:text-3xl font-semibold '>{education.name}</h3>
-                    <a
-                      href={education.organization?.url}
-                      target='_blank'
-                      className='hover:text-sky-500 hover:underline duration-700 transition-color'
-                    >
-                      <h3 className='certifications-org-name text-base mt-1'> {education.organization?.name}</h3>
-                    </a>
-                  </div>
-                  <div className='education-date flex items-start justify-start flex-1 gap-3 '>
-                    <span className='education-date text-slate-700 dark:text-slate-400 text-sm text-opacity-90 dark:text-opacity-80'>
-                      Issued {education.startMonth + '-' + education.startYear}
-                    </span>
-                    {/* <span className='education-date'>{education.endMonth + '-' + education.endYear}</span> */}
-                  </div>
-                  <a
-                    href={education.credentialUrl!}
-                    target='_blank'
-                    className='group-hover:text-sky-500 hover:underline flex items-center justify-center hover:border-sky-500  dark:hover:border-sky-600  border border-slate-300 dark:border-slate-900 w-fit rounded-[4px] py-2 px-3 gap-1 duration-700 transition-color '
-                  >
-                    <h3 className='education-credential-url text-sm'> Show Credential</h3>
-                    <ExternalLinkIcon />
-                  </a>
-                </div>
-              </div>
-            ))}
-        </div>
-      </div>
+      <Experiences data={data?.experiences.data.slice(0, 3) || []} showAll={data?.experiences?.results > 3} />
+      <CallToAction />
+      <Projects data={data?.projects.data.slice(0, 3) || []} showAll={data.projects?.results > 3} />
+      <Recommendations data={data?.reviews.data.slice(0, 3) || []} showAll={data.reviews?.results > 3} />
+      <Educations data={data?.educations.data.filter((ed) => ed.type === 'education') || []} />
+      <CertificationsAndLicenses data={data?.educations.data.filter((ed) => ed.type !== 'education') || []} />
     </div>
   )
 }

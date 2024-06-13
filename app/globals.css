@@ -161,6 +161,10 @@ html.dark ::-webkit-scrollbar-thumb:hover {
   animation: scroll var(--_animation-duration, 40s) var(--_animation-direction, forwards) linear infinite;
 }
 
+.scroller[data-animated="true"] .scroller__inner.pauseable:hover {
+  animation-play-state: paused;
+}
+
 .scroller[data-direction="right"] {
   --_animation-direction: reverse;
 }
@@ -289,4 +293,16 @@ html.dark ::-webkit-scrollbar-thumb:hover {
 .animatedBorder:hover::before,
 .animatedBorder:hover::after {
   opacity: 1;
+}
+
+
+.bg-gradient {
+  background: linear-gradient(white, #fff) padding-box,
+    linear-gradient(#5d5dd6, white) border-box;
+  border: 2px solid #d15ab33b;
+}
+
+html.dark .bg-gradient {
+  background: linear-gradient(rgb(37, 99, 235), #8b55f5) padding-box, linear-gradient(#fff, #fff) border-box;
+  border: 1px solid #020617;
 }

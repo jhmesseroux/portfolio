@@ -13,7 +13,7 @@ import ThemeContext from '@/context/ThemeContext'
 
 export const metadata: Metadata = {
   title: 'Portfolio | Jean Hilaire Messeroux',
-  description: 'Results-driven software engineer with over five years of experience, consistently delivering high-quality solutions.',
+  description: 'Results-driven software engineer with over five years of experience, consistently delivering high-quality solutions.'
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
@@ -31,10 +31,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ThemeContext>
           <ThemeSwitcher className='absolute right-12  top-3 ' />
           <SmallHeader />
-
           <Header />
           <main className='flex  flex-col  justify-between relative'>{children}</main>
-
           <Footer />
           <MobileSideBar />
           <GoToTop />

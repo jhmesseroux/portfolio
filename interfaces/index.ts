@@ -101,3 +101,29 @@ export interface Organization {
   url: string
   name: string
 }
+
+export interface ReviewResponse {
+  ok: boolean
+  code: number
+  status: string
+  results: number
+  data: IReview[]
+}
+
+export interface IReview {
+  id: number
+  review: string
+  author: Author
+  createdAt: Date
+  updatedAt: Date
+}
+
+export interface Author {
+  name: string
+  image: string
+  website: string
+  linkedIn: string
+  instagram: string
+  facebook: string
+  position: string
+}

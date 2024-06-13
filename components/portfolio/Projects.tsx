@@ -1,10 +1,11 @@
 import Link from 'next/link'
 import React from 'react'
-import { Skill, LinkIcon, GithubIcon, StarIcon, ExternalLinkIcon } from '..'
+import { Skill, LinkIcon, GithubIcon, ExternalLinkIcon } from '..'
 import Image from 'next/image'
 import { IProject } from '@/interfaces'
 import { cn } from '@/helpers'
 import SocialLink from './SocialLink'
+import CodeIcon from '../icons/coding/CodeIcon'
 interface Props extends React.HTMLAttributes<HTMLHtmlElement> {
   data: IProject[]
   showAll?: boolean
@@ -26,9 +27,9 @@ const Projects = ({ data, showAll = false, className, ...rest }: Props) => {
   return (
     <section {...rest} className={cn('projects-container mt-8 p-4', className)}>
       <div className='flex items-center justify-between gap-3 flex-wrap'>
-        <div className='projects-header flex items-center gap-2 sm:gap-8'>
+        <div className='projects-header flex items-center justify-center gap-2 sm:gap-4'>
           <span className='text-lg sm:text-3xl text-brand font-extrabold'>Projects</span>
-          <StarIcon />
+          <CodeIcon />
         </div>
         {showAll && (
           <Link href='/projects' className='hover:text-brand text-sm'>
@@ -68,7 +69,7 @@ const Projects = ({ data, showAll = false, className, ...rest }: Props) => {
                   <Skill key={skill} skill={skill + (item.skills.length !== index + 1 ? ' | ' : '')} />
                 ))}
               </div>
-              <div className='project-actions mt-3 flex items-center gap-2 flex-wrap'>
+              <div className='project-actions mt-3 flex items-center gap-6 flex-wrap'>
                 {item.demoLink && (
                   <a
                     href={item.demoLink}

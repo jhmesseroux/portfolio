@@ -1,20 +1,16 @@
-import { BASE_URL_API } from '@/constants'
 import { SkillResponse } from '@/interfaces'
 import { Metadata } from 'next'
 import React from 'react'
 import SkillsBox from './SkillsBox'
+import CallToAction from '@/components/portfolio/CallToAction'
 
 export const metadata: Metadata = {
   title: 'Portfolio | Jean Hilaire Messeroux | Skills',
-  description: 'Here are some of my skills.',
+  description: 'Here are some of my skills.'
 }
 
 async function getData() {
-  const res = await fetch(BASE_URL_API + '/skills', {
-    next: {
-      revalidate: 60 * 5,
-    },
-  })
+  const res = await fetch(process.env.NEXT_PUBLIC_API_URL + '/skills')
 
   if (!res.ok) {
     // This will activate the closest `error.js` Error Boundary
@@ -26,8 +22,8 @@ async function getData() {
 const Skills = async () => {
   const skills = await getData()
   return (
-    <div className=' w-full md:max-w-3xl m-auto my-6 p-6 '>
-      <SkillsBox skills={skills.data} />
+    <div className=' w-full md:max-w-4xl m-auto my-6 p-6 '>
+      <SkillsBox />
 
       <div className='skills flex flex-wrap items-center justify-center gap-4 mt-6 '>
         {skills.data.map((skill, index) => (
@@ -38,6 +34,7 @@ const Skills = async () => {
           </div>
         ))}
       </div>
+      <CallToAction />
     </div>
   )
 }
