@@ -1,6 +1,6 @@
 'use client'
 import React, { useEffect } from 'react'
-import LinkedInIcon from '../icons/socials/LinkedInIcon'
+import LinkedInIcon from '../icons/socials/LinkedinIcon'
 import LinkIcon from '../icons/LinkIcon'
 import { IReview } from '@/interfaces'
 import StarIcon from '../icons/StarIcon'
