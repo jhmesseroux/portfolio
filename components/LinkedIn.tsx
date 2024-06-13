@@ -1,7 +1,7 @@
 import React from 'react'
-import LinkedInIcon from './icons/socials/LinkedInIcon'
 import ExternalLinkIcon from './icons/ExternalLinkIcon'
 import { cn } from '@/helpers'
+import { LinkedInIcon } from './../components'
 
 type Props = {
   className?: string

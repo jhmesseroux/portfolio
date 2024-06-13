@@ -7,7 +7,6 @@ import SunIcon from './icons/SunIcon'
 import YoutubeIcon from './icons/socials/YoutubeIcon'
 import TelegramIcon from './icons/socials/TelegramIcon'
 import InstagramIcon from './icons/socials/InstagramIcon'
-import LinkedInIcon from './icons/socials/LinkedInIcon'
 import CopyIcon from './icons/CopyIcon'
 import CopyButton from './CopyButton'
 import MenuIcon from './icons/Menu'
@@ -28,9 +27,11 @@ import TypeScriptIcon from './icons/coding/TypeScriptIcon'
 import JavascriptIcon from './icons/coding/JavascriptIcon'
 import EducationIcon from './icons/EducationIcon'
 import CertificationIcon from './icons/CertificationIcon'
+import LinkedInIcon from './icons/socials/LinkedinIcon' // Corrected the casing of the file name
 
 export {
   SunIcon,
+  LinkedInIcon,
   MoonIcon,
   LinkIcon,
   GithubIcon,
@@ -39,7 +40,6 @@ export {
   YoutubeIcon,
   TelegramIcon,
   InstagramIcon,
-  LinkedInIcon,
   CopyIcon,
   CopyButton,
   MenuIcon,
