@@ -5,14 +5,12 @@ const LinkIcon = ({ className, ...rest }: Props) => {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
-      className={
-        'icon icon-tabler icon-tabler-link cursor-pointer ' + className
-      }
+      className={'icon icon-tabler icon-tabler-link cursor-pointer ' + className}
       {...rest}
       width={24}
       height={24}
       viewBox='0 0 24 24'
-      strokeWidth={2}
+      strokeWidth={1}
       stroke='currentColor'
       fill='none'
       strokeLinecap='round'

@@ -2,7 +2,7 @@ import { cn } from '@/helpers'
 import React from 'react'
 interface Props extends React.HTMLAttributes<SVGElement> {}
 
-const LinkedinIcon = ({ className, ...rest }: Props) => {
+const LinkedInIcon = ({ className, ...rest }: Props) => {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -27,4 +27,4 @@ const LinkedinIcon = ({ className, ...rest }: Props) => {
   )
 }
 
-export default LinkedinIcon
+export default LinkedInIcon

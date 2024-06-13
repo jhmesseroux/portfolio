@@ -7,7 +7,7 @@ import SunIcon from './icons/SunIcon'
 import YoutubeIcon from './icons/socials/YoutubeIcon'
 import TelegramIcon from './icons/socials/TelegramIcon'
 import InstagramIcon from './icons/socials/InstagramIcon'
-import LinkedinIcon from './icons/socials/LinkedinIcon'
+import LinkedInIcon from './icons/socials/LinkedInIcon'
 import CopyIcon from './icons/CopyIcon'
 import CopyButton from './CopyButton'
 import MenuIcon from './icons/Menu'
@@ -39,7 +39,7 @@ export {
   YoutubeIcon,
   TelegramIcon,
   InstagramIcon,
-  LinkedinIcon,
+  LinkedInIcon,
   CopyIcon,
   CopyButton,
   MenuIcon,
@@ -59,5 +59,5 @@ export {
   JavascriptIcon,
   HtmlIcon,
   EducationIcon,
-  CertificationIcon,
+  CertificationIcon
 }

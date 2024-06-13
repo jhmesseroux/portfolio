@@ -1,20 +1,15 @@
 import Projects from '@/components/portfolio/Projects'
-import { BASE_URL_API } from '@/constants'
 import { ProjectResponse } from '@/interfaces'
 import { Metadata } from 'next'
 import React from 'react'
 
 export const metadata: Metadata = {
   title: 'Portfolio | Jean Hilaire Messeroux | Projects',
-  description: 'Here are some of my projects that I have worked on.',
+  description: 'Here are some of my projects that I have worked on.'
 }
 
 async function getData() {
-  const res = await fetch(BASE_URL_API + '/projects', {
-    next: {
-      revalidate: 60 * 5,
-    },
-  })
+  const res = await fetch(process.env.NEXT_PUBLIC_API_URL + '/projects')
 
   if (!res.ok) {
     throw new Error('Failed to fetch data')

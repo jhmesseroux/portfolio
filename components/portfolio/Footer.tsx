@@ -6,13 +6,14 @@ import Link from 'next/link'
 const Footer = () => {
   return (
     <footer
-      style={{
-        backgroundImage: 'url(/assets/images/square.png)',
-        backgroundRepeat: 'no-repeat',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center',
-      }}
-      className='p-6 mb-6  flex flex-col gap-6 items-center justify-start sm:justify-center mt-auto'
+      // style={{
+      //   backgroundImage: 'url(/assets/images/square.png)',
+      //   backgroundRepeat: 'no-repeat',
+      //   backgroundSize: 'cover',
+      //   backgroundPosition: 'center',
+      // }}
+
+      className='p-6 mb-12  flex flex-col gap-6 items-center justify-start sm:justify-center mt-auto'
     >
       <Medias />
 

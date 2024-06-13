@@ -1,5 +1,5 @@
 import React from 'react'
-import { YoutubeIcon, GithubIcon, LinkedinIcon, InstagramIcon, TelegramIcon } from '..'
+import { YoutubeIcon, GithubIcon, LinkedInIcon, InstagramIcon, TelegramIcon } from '..'
 import SocialLink from './SocialLink'
 
 const Medias = () => {
@@ -20,7 +20,7 @@ const Medias = () => {
           to='https://github.com/jhmesseroux'
         />
         <SocialLink
-          Icon={LinkedinIcon}
+          Icon={LinkedInIcon}
           className='border-blue-600 text-blue-600 hover:bg-blue-700'
           title='Linkedin'
           to='https://www.linkedin.com/in/jhmesseroux/'

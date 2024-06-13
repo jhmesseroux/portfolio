@@ -2,7 +2,6 @@ import { cn } from '@/helpers'
 import Link from 'next/link'
 import React from 'react'
 import CloseModalSideBar from './CloseModalButton'
-import LinkIcon from '../icons/LinkIcon'
 import ExternalLinkIcon from '../icons/ExternalLinkIcon'
 
 interface Props extends React.HTMLAttributes<HTMLElement> {
@@ -10,22 +9,22 @@ interface Props extends React.HTMLAttributes<HTMLElement> {
   hiddenOnClick?: boolean
 }
 const items = [
-  // {
-  //   name: 'Blog',
-  //   link: '/blog',
-  // },
+  {
+    name: 'Recommendations',
+    link: '/#recommendations'
+  },
   {
     name: 'Projects',
-    link: '/projects',
+    link: '/projects'
   },
   {
     name: 'Experiences',
-    link: '/experiences',
+    link: '/experiences'
   },
   {
     name: 'Skills',
-    link: '/skills',
-  },
+    link: '/skills'
+  }
 ]
 
 const Navbar = ({ className, ulClassName, hiddenOnClick = false, ...rest }: Props) => {
@@ -49,7 +48,7 @@ const Navbar = ({ className, ulClassName, hiddenOnClick = false, ...rest }: Prop
         target='_blank'
         className='hover:bg-blue-600 py-2 px-3.5 flex items-center text-blue-600  gap-1 rounded-[4px] hover:shadow border-blue-500 dark:hover:bg-blue-500 hover:text-white dark:hover:border-brand duration-500 transition-colors'
       >
-        <span>Linkedin</span>
+        <span>LinkedIn</span>
         <ExternalLinkIcon />
       </a>
     </nav>
