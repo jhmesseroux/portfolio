@@ -22,10 +22,10 @@ const Experiences = ({ data, showAll = false, className, ...rest }: Props) => {
           </Link>
         )}
       </div>
-      <div className='experiences flex  gap-6 my-6 divide-y-[1px]s divide-slate-300 dark:divide-slate-700 flex-col' id='experiences'>
+      <div className='experiences grid grid-cols-1 md:grid-cols-2 gap-4 my-6' id='experiences'>
         {data.map((item, i) => (
-          <div key={i} className='rounded-lg animatedBorder  flex-grow ' data-border='thin' data-blur='none'>
-            <div className='flex flex-col gap-2  experience group cursor-pointer hover:shadow p-6 rounded-lg bg-white dark:bg-slate-950 h-full border border-state-300 dark:border-slate-800 '>
+          <div key={i} className='rounded-lg animatedBorder shadow-1 dark:shadow-none flex-grow ' data-border='thin' data-blur='none'>
+            <div className='flex flex-col gap-2  experience group cursor-pointer hover:shadow p-6 rounded-lg bg-white dark:bg-slate-950 h-full'>
               <h3 className=' flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-4 text-slate-700 dark:text-slate-500 group-hover:text-brand dark:group-hover:text-violet-500 duration-500 transition-colors'>
                 {item.demoLink ? (
                   <Link href={item.demoLink} target='_blank'>
@@ -35,7 +35,7 @@ const Experiences = ({ data, showAll = false, className, ...rest }: Props) => {
                   <span className='font-bold text-lg sm:text-2xl'>{item.title}</span>
                 )}
               </h3>
-              <h5 className='flex sm:items-center  flex-col sm:flex-row justify-between'>
+              <h5 className='flex sm:items-center gap-4 flex-col sm:flex-row justify-between'>
                 <div className='flex items-center gap-1 '>
                   <Link href={item?.companyLink || ''} className='group-hover:underline' target='_blank'>
                     <span className=''>{item.companyName}</span>

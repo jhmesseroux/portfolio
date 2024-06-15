@@ -15,6 +15,7 @@
   --border-width: -2px
 }
 
+
 html,
 body {
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
@@ -305,4 +306,18 @@ html.dark ::-webkit-scrollbar-thumb:hover {
 html.dark .bg-gradient {
   background: linear-gradient(rgb(37, 99, 235), #8b55f5) padding-box, linear-gradient(#fff, #fff) border-box;
   border: 1px solid #020617;
+}
+
+.shadow-1 {
+  box-shadow: 0px 6px 34px rgba(215, 216, 222, 0.41);
+
+}
+
+.text-gradient {
+  background: linear-gradient(rgb(77, 147, 255), rgb(221, 120, 249));
+  -webkit-background-clip: text;
+  background-clip: border-box;
+  background-clip: border-box;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

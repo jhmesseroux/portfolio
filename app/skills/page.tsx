@@ -5,18 +5,15 @@ import SkillsBox from './SkillsBox'
 import CallToAction from '@/components/portfolio/CallToAction'
 
 export const metadata: Metadata = {
-  title: 'Portfolio | Jean Hilaire Messeroux | Skills',
+  title: 'Skills | Portfolio | Jean Hilaire Messeroux ',
   description: 'Here are some of my skills.'
 }
 
 async function getData() {
   const res = await fetch(process.env.NEXT_PUBLIC_API_URL + '/skills')
-
   if (!res.ok) {
-    // This will activate the closest `error.js` Error Boundary
     throw new Error('Failed to fetch data')
   }
-
   return res.json() as Promise<SkillResponse>
 }
 const Skills = async () => {
@@ -24,7 +21,6 @@ const Skills = async () => {
   return (
     <div className=' w-full md:max-w-4xl m-auto my-6 p-6 '>
       <SkillsBox />
-
       <div className='skills flex flex-wrap items-center justify-center gap-4 mt-6 '>
         {skills.data.map((skill, index) => (
           <div className='rounded-lg animatedBorder' data-border='thin' data-blur='big' key={index}>

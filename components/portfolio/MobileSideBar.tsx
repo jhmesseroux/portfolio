@@ -15,8 +15,8 @@ const MobileSideBar = () => {
         <div className=''>
           <div className='avatar flex items-center   gap-2 border-b border-slate-300 dark:border-slate-700 p-3'>
             <Image
-              src={'/assets/images/avatar.png'}
-              className=' rounded-full border-[1px] border-slate-100 dark:border-slate-700 shadow-md '
+              src={'/assets/images/me.png'}
+              className=' rounded-full border-[1px] overflow-hidden w-[50px] h-[50px] object-cover border-red-400 shadow-md '
               alt='Avatar Jn. H. Messeroux '
               width={50}
               height={50}

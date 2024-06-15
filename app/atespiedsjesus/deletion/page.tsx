@@ -45,7 +45,7 @@ const DataDeletion = () => {
     }
   }
   return (
-    <div className='relative bg-white dark:bg-slate-900 p-6 my-8 border-none  flex flex-col w-full sm:w-[470px] self-center mx-0 rounded py-8'>
+    <div className='relative bg-white shadow-1 dark:bg-slate-900 p-6 my-8 border-none  flex flex-col w-full sm:w-[470px] self-center mx-0 rounded py-8'>
       <section className='sign-in'>
         <div className='sign-in__header'>
           <h1 className='text-gradient text-lg sm:text-3xl text-red-400 dark:text-red-500/90 font-semibold'>Data Deletion Request</h1>
@@ -73,7 +73,7 @@ const DataDeletion = () => {
             placeholder='Please let us know why you want to delete your account...'
             fieldsetClassName='mb-1'
             textArea
-            hasError={errors?.password}
+            hasError={errors?.reason}
           />
 
           {error && <FormError className='border border-red-400 border-dashed mb-4' text={error} />}

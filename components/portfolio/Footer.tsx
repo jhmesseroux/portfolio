@@ -1,19 +1,17 @@
 import React from 'react'
 import { CopyButton } from '..'
 import Medias from './Medias'
-import Link from 'next/link'
 
 const Footer = () => {
   return (
     <footer
-      // style={{
-      //   backgroundImage: 'url(/assets/images/square.png)',
-      //   backgroundRepeat: 'no-repeat',
-      //   backgroundSize: 'cover',
-      //   backgroundPosition: 'center',
-      // }}
-
-      className='p-6 mb-12  flex flex-col gap-6 items-center justify-start sm:justify-center mt-auto'
+      style={{
+        backgroundImage: 'url(/assets/images/dots-curve-bg.svg)',
+        backgroundRepeat: 'no-repeat',
+        backgroundSize: 'cover',
+        backgroundPosition: 'center'
+      }}
+      className='p-6 mb-12 flex flex-col gap-6 items-center justify-start sm:justify-center mt-auto'
     >
       <Medias />
 
@@ -40,11 +38,9 @@ const Footer = () => {
           </a>
         </fieldset>
       </div>
-      <div className='version flex items-center gap-3 flex-wrap justify-center'>
-        <Link target='_blank' className='text-xs hover:text-brand hover:underline' href={'https://previous.jhmesseroux.com'}>
-          <span>Previous Versions</span>
-        </Link>
-        <span></span>
+      <div className='version flex items-center gap-1.5 flex-wrap justify-center'>
+        <strong>Location : </strong>
+        <span className='text-brand'>Montreal,Canada</span>
       </div>
     </footer>
   )

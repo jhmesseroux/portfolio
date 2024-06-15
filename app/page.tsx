@@ -43,10 +43,10 @@ export default async function Home() {
   const data = await getData()
   return (
     <div className=''>
-      <Experiences data={data?.experiences.data.slice(0, 3) || []} showAll={data?.experiences?.results > 3} />
+      <Experiences data={data?.experiences.data.slice(0, 4) || []} showAll={data?.experiences?.results > 4} />
       <CallToAction />
       <Projects data={data?.projects.data.slice(0, 3) || []} showAll={data.projects?.results > 3} />
-      <Recommendations data={data?.reviews.data.slice(0, 3) || []} showAll={data.reviews?.results > 3} />
+      <Recommendations data={data?.reviews.data.slice(0, 10) || []} showAll={data.reviews?.results > 10} />
       <Educations data={data?.educations.data.filter((ed) => ed.type === 'education') || []} />
       <CertificationsAndLicenses data={data?.educations.data.filter((ed) => ed.type !== 'education') || []} />
     </div>
