@@ -11,7 +11,7 @@ const Educations = ({ data }: { data: IEducation[] }) => {
       </div>
       <div className='educations-content grid grid-cols-1 md:grid-cols-2 gap-12 mt-6'>
         {data
-          .sort((a, b) => a.startYear - b.startYear)
+          .sort((a, b) => b.startYear - a.startYear)
           .map((education, index) => (
             <div
               key={index}
