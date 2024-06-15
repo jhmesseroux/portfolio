@@ -198,7 +198,7 @@ const AddReview = () => {
             className='max-h-28'
             disabled={loading}
             label={formEntries[locale].review}
-            // required
+            required
             name='review'
             placeholder={formEntries[locale].placeholder}
             textArea
