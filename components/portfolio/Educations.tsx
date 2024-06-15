@@ -4,7 +4,7 @@ import { IEducation } from '@/interfaces'
 
 const Educations = ({ data }: { data: IEducation[] }) => {
   return (
-    <div className='educations my-8  p-12 bg-gradient-to-b from-white via-gray-100 to-white   dark:from-slate-950  dark:via-gray-950 rounded-md'>
+    <div className='educations my-8 p-4 sm:p-12 bg-gradient-to-b from-white via-gray-100 to-white   dark:from-slate-950  dark:via-gray-950 rounded-md'>
       <div className='projects-header flex items-center  gap-4'>
         <span className='text-lg sm:text-3xl text-brand font-extrabold'>Educations</span>
         <EducationIcon />
