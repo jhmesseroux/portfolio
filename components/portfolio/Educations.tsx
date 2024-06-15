@@ -26,8 +26,13 @@ const Educations = ({ data }: { data: IEducation[] }) => {
                 </div>
                 <div className='flex items-center gap-4 justify-between'>
                   <div className='education-date flex items-center gap-3 group-hover:text-brand2 text-sm'>
-                    <span className='education-date'>{education.startMonth + '-' + education.startYear}</span>
-                    <span className='education-date'>{education.endMonth + '-' + education.endYear}</span>
+                    <span className='education-date'>{education.startMonth + ' ' + education.startYear}</span>
+                    <span>-</span>
+                    {education.current ? (
+                      <span className='education-date'>Present</span>
+                    ) : (
+                      <span className='education-date'>{education.endMonth + ' ' + education.endYear}</span>
+                    )}
                   </div>
                 </div>
               </div>
