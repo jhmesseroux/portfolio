@@ -24,8 +24,13 @@ const Experiences = ({ data, showAll = false, className, ...rest }: Props) => {
       </div>
       <div className='experiences grid grid-cols-1 md:grid-cols-2 gap-4 my-6' id='experiences'>
         {data.map((item, i) => (
-          <div key={i} className='rounded-lg animatedBorder shadow-1 dark:shadow-none flex-grow ' data-border='thin' data-blur='none'>
-            <div className='flex flex-col gap-2  experience group cursor-pointer hover:shadow p-6 rounded-lg bg-white dark:bg-slate-950 h-full'>
+          <div
+            key={i}
+            className='rounded-lg dark:hover:translate-y-2 transition-all duration-300 animatedBorder shadow-1 dark:shadow-none flex-grow '
+            data-border='thin'
+            data-blur='none'
+          >
+            <div className='flex flex-col  gap-2  experience group cursor-pointer hover:shadow p-6 rounded-lg bg-white dark:bg-slate-950 h-full'>
               <h3 className=' flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-4 text-slate-700 dark:text-slate-500 group-hover:text-brand dark:group-hover:text-violet-500 duration-500 transition-colors'>
                 {item.demoLink ? (
                   <Link href={item.demoLink} target='_blank'>
