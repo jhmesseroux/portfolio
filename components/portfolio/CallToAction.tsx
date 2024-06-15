@@ -12,13 +12,16 @@ const CallToAction = () => {
           </span>
         </div>
         <div className='flex items-center gap-4'>
-          <LinkedIn icon={false} className='dark:bg-white dark:hover:bg-white dark:border-none dark:hover:text-blue-400' />
+          <LinkedIn
+            icon={false}
+            className='dark:bg-black/30 dark:text-white dark:hover:bg-black/50 dark:border-none dark:hover:text-blue-400'
+          />
           <a
             href='mailto:jhmcode.dev@gmail.com'
-            className='p-2 flex w-full sm:w-[125px] text-center justify-center items-center group gap-2 duration-500 transition-all  bg-brand2 dark:bg-transparent text-white hover:bg-violet-600  outline-none rounded dark:hover:bg-white dark:hover:text-brand'
+            className='py-2 px-3.5 flex w-full sm:w-[125px] text-center justify-center items-center group gap-2 duration-700 transition-all  bg-brand2 dark:bg-slate-800 text-white hover:bg-violet-600  outline-none rounded dark:hover:bg-slate-900 dark:hover:text-white'
           >
             <span>Mail me</span>
-            <span className='group-hover:opacity-90 transition-all group-hover:w-fit w-0 duration-1000 opacity-10'>&rarr;</span>
+            <span className='group-hover:opacity-90 transition-all  duration-1000 opacity-10'>&rarr;</span>
           </a>
         </div>
       </div>

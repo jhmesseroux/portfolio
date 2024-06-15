@@ -10,17 +10,15 @@ const CertificationsAndLicenses = ({ data }: { data: IEducation[] }) => {
         <span className='text-lg sm:text-3xl text-brand font-extrabold'>Certifications and Licenses</span>
         <CertificationIcon />
       </div>
-      <div className='certifications-content flex  gap-8 mt-6 flex-wrap'>
+      <div className='certifications-content grid grid-cols-1 md:grid-cols-2 gap-12 mt-6'>
         {data
           .sort((a, b) => a.startYear - b.startYear)
           .map((education, index) => (
             <div
-              className='certification-item rounded-lg w-full md:w-[350px]  animatedBorder flex-grow'
-              data-border='thin'
-              data-blur='none'
+              className='certification-item  w-full sm:hover:scale-[1.05]  shadow-1 dark:shadow-none duration-700 transition-all cursor-pointer  flex-grow'
               key={index}
             >
-              <div className='rounded-lg border-[1px] bg-white  dark:bg-slate-950 p-6 flex flex-col gap-3 border-slate-300 dark:border-sky-700 dark:border-opacity-25   duration-700 transition-all cursor-pointer hover:border-none group h-full '>
+              <div className='dark:bg-slate-900 p-6 flex flex-col gap-3 group rounded'>
                 <div>
                   <h3 className='certifications-name text-2xl sm:text-3xl font-semibold '>{education.name}</h3>
                   <a
@@ -40,7 +38,7 @@ const CertificationsAndLicenses = ({ data }: { data: IEducation[] }) => {
                 <a
                   href={education.credentialUrl!}
                   target='_blank'
-                  className='group-hover:text-sky-500 hover:underline flex items-center justify-center hover:border-sky-500  dark:hover:border-sky-600  border border-slate-300 dark:border-slate-900 w-fit rounded-[4px] py-2 px-3 gap-1 duration-700 transition-color '
+                  className='group-hover:text-sky-500 hover:underline flex items-center justify-center hover:border-sky-500  dark:hover:border-sky-600  border border-slate-300 dark:border-slate-800 w-fit rounded-[4px] py-2 px-3 gap-1 duration-700 transition-color '
                 >
                   <h3 className='education-credential-url text-sm'> Show Credential</h3>
                   <ExternalLinkIcon />

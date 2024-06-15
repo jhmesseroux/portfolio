@@ -1,10 +1,12 @@
 'use client'
 import { SquareLoading } from '@/components'
-import React, { createContext, useEffect, useLayoutEffect, useState } from 'react'
+import { cn } from '@/helpers'
+import React, { createContext, useLayoutEffect, useState } from 'react'
 interface Props extends React.HTMLAttributes<HTMLDivElement> {}
 
 export interface ThemeContextProps {
   theme: 'dark' | 'light' | null
+  // eslint-disable-next-line no-unused-vars
   toggleTheme: (theme: 'dark' | 'light') => void
 }
 export const ThemeContext = createContext({} as ThemeContextProps)
@@ -40,24 +42,20 @@ const ThemeProvider = ({ children }: Props) => {
 
   if (!theme)
     return (
-      <div className='w-full h-screen flex items-center text-center flex-col gap-4 justify-center'>
-        <SquareLoading />
-        <div className=' '>
-          <span className=''>System engineer | Javascript and PHP Fullstack developer</span>
+      <section className=' h-screen  w-screen grid place-items-center'>
+        <div
+          style={{ maxWidth: 500, maxHeight: 400 }}
+          className={cn('p-6 shadow-sm rounded-md flex items-center text-center flex-col gap-4 justify-center')}
+        >
+          <SquareLoading />
+          <div className='p-6' style={{ backgroundColor: theme === 'dark' ? '#1a202c' : 'white' }}>
+            Software Engineer | Fullstack developer | Typescript, Nodejs | React.js,Next.js | React Native | Chrome Extension
+          </div>
         </div>
-      </div>
+      </section>
     )
 
-  return (
-    <ThemeContext.Provider
-      value={{
-        theme,
-        toggleTheme
-      }}
-    >
-      {children}
-    </ThemeContext.Provider>
-  )
+  return <ThemeContext.Provider value={{ theme, toggleTheme }}>{children}</ThemeContext.Provider>
 }
 
 export default ThemeProvider

@@ -9,9 +9,7 @@ const OpenModalButton = ({ className, ...rest }: Props) => {
     <button
       className={cn('flex sm:hidden', className)}
       {...rest}
-      onClick={() =>
-        document.querySelector('.mobile-sidebar')?.classList.add('active')
-      }
+      onClick={() => document.querySelector('.mobile-sidebar')?.classList.add('active')}
     >
       <MenuIcon />
     </button>

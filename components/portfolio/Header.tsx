@@ -18,7 +18,7 @@ const Header = () => {
     >
       <OpenModalButton className='flex sm:flex absolute right-3 text-brand top-3' />
       <Link href='/'>
-        <div className='avatar border-[0px] border-slate-100 dark:border-brand  rounded-full overflow-hidden w-[220px] h-[220px] shadow'>
+        <div className='avatar border-[0px] border-slate-100 dark:border-brand hover:opacity-80 rounded-full hover:skew-y-2 hover:skew-x-1 hover:scale-[1.05] overflow-hidden w-[220px] h-[220px] shadow transition-all duration-1000'>
           <Image src={'/assets/images/me.png'} alt='Avatar Jn. H. Messeroux' width={220} height={220} />
         </div>
       </Link>

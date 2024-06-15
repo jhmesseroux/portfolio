@@ -4,7 +4,7 @@ import { Metadata } from 'next'
 import React from 'react'
 
 export const metadata: Metadata = {
-  title: 'Portfolio | Jean Hilaire Messeroux | Projects',
+  title: 'Projects | Portfolio | Jean Hilaire Messeroux',
   description: 'Here are some of my projects that I have worked on.'
 }
 
@@ -17,13 +17,13 @@ async function getData() {
 
   return res.json() as Promise<ProjectResponse>
 }
-const Skills = async () => {
+const MyProjects = async () => {
   const projects = await getData()
   return (
-    <div className='bg-red-100s max-w-5xl m-auto my-6 p-6'>
+    <div className='my-6'>
       <Projects data={projects.data} />
     </div>
   )
 }
 
-export default Skills
+export default MyProjects
