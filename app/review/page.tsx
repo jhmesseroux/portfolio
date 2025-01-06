@@ -111,12 +111,13 @@ const formEntries = {
     username: 'Full Name',
     position: 'Position',
     LinkType: 'Link Type',
-    link: 'Link',
+    link: 'Link to a social network',
     placeholder: 'Describe your experience with our service or product...',
     selectDOptPosition: 'Select a position...',
     selectDOptLinkType: 'Select an option...',
     options: jobPositionsEnglish,
-    whyThisLink: 'This will be used to verify your identity. Make sure it is a valid link and publicly accessible.'
+    whyThisLink: 'This will be used to verify your identity. Make sure it is a valid link and publicly accessible.',
+    avatar: 'Avatar/photo URL '
   },
   es: {
     review: 'Descripción',
@@ -126,13 +127,13 @@ const formEntries = {
     username: 'Nombre completo',
     position: 'Posición',
     LinkType: 'Tipo de enlace',
-    link: 'Enlace',
-    avatar: 'Avatar',
+    link: 'Enlace de una red social',
     placeholder: 'Describe tu experiencia con nuestro servicio o producto...',
     selectDOptPosition: 'Seleccionar una posición...',
     selectDOptLinkType: 'Seleccionar una opción',
     options: jobPositionsSpanish,
-    whyThisLink: 'Esto se utilizará para verificar tu identidad. Asegúrate de que sea un enlace válido y accesible públicamente.'
+    whyThisLink: 'Esto se utilizará para verificar tu identidad. Asegúrate de que sea un enlace válido y accesible públicamente.',
+    avatar: 'URL de avatar/foto'
   }
 }
 
@@ -159,7 +160,8 @@ const AddReview = () => {
       author: {
         name: _data.name,
         position: _data.position,
-        [`${_data.linkType}`]: _data.link
+        [`${_data.linkType}`]: _data.link,
+        avatar: _data.avatar
       }
     }
     try {
@@ -260,7 +262,7 @@ const AddReview = () => {
                 </option>
                 <option value='linkedIn'>LinkedIn</option>
                 <option value='instagram'>Instagram</option>
-                <option value='website'>Otro</option>
+                <option value='website'>Other/Otro</option>
               </select>
             </fieldset>
             <Input
@@ -276,6 +278,20 @@ const AddReview = () => {
               hasError={errors?.link}
             />
           </div>
+          {/* <Input
+            label={formEntries[locale].avatar}
+            name='avatar'
+            disabled={loading}
+            type='url'
+            className='flex-1'
+            fieldsetClassName=''
+            required
+            placeholder='https://www.linkedin.com/in/jhmesseroux/'
+            templateExtra={() => (
+              <span className='text-xs text-violet-400 text-left dark:text-slate-500'>{formEntries[locale].whyThisLink}</span>
+            )}
+            hasError={errors?.avatar}
+          /> */}
 
           {error && <FormError className='border border-red-400 border-dashed mb-4' text={error} />}
           {success && <div className='border-green-400 dark:bg-green-800/20 text-green-500 bg-green-100 p-3  my-4'>{success}</div>}

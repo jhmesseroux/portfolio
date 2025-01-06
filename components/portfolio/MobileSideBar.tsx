@@ -5,6 +5,7 @@ import { Overlay } from '..'
 import Navbar from './Navbar'
 import CloseModalSideBar from './CloseModalButton'
 import Medias from './Medias'
+import Link from 'next/link'
 
 const MobileSideBar = () => {
   return (
@@ -21,9 +22,17 @@ const MobileSideBar = () => {
               width={50}
               height={50}
             />
-            <div className='flex flex-col '>
+            <div className='flex flex-col flex-1 '>
               <span className=''>Jean H. Messeroux</span>
-              <span className='text-brand text-xs'>System Engineer</span>
+              <span className='text-brand text-xs line-clamp-2 truncate text-ellipsis text-balance'>
+                {' '}
+                Co-Founder, CTO at{' '}
+                <Link className='text-pink-500 dark:text-pink-500 hover:underline' href={'https://dooke.app'} target='_blank'>
+                  Dooke
+                </Link>
+                {' | '}
+                System Engineer
+              </span>
             </div>
           </div>
 

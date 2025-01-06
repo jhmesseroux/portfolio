@@ -1,11 +1,7 @@
 import type { Config } from 'tailwindcss'
 
 const config: Config = {
-  content: [
-    './pages/**/*.{js,ts,jsx,tsx,mdx}',
-    './components/**/*.{js,ts,jsx,tsx,mdx}',
-    './app/**/*.{js,ts,jsx,tsx,mdx}',
-  ],
+  content: ['./pages/**/*.{js,ts,jsx,tsx,mdx}', './components/**/*.{js,ts,jsx,tsx,mdx}', './app/**/*.{js,ts,jsx,tsx,mdx}'],
   darkMode: 'class',
   theme: {
     extend: {
@@ -14,14 +10,24 @@ const config: Config = {
         brand2: 'var(--brand-color-2)',
         dark: 'var(--dark-color)',
         darkbox: 'var(--dark-color-box)',
-        darktext: 'var(--dark-text)',
+        darktext: 'var(--dark-text)'
       },
       backgroundColor: {
         brand: 'var(--brand-color)',
-        brand2: 'var(--brand-color-2)',
+        brand2: 'var(--brand-color-2)'
       },
-    },
+      animation: {
+        'border-beam': 'border-beam calc(var(--duration)*1s) infinite linear'
+      },
+      keyframes: {
+        'border-beam': {
+          '100%': {
+            'offset-distance': '100%'
+          }
+        }
+      }
+    }
   },
-  plugins: [],
+  plugins: []
 }
 export default config

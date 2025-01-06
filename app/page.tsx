@@ -9,7 +9,7 @@ import { EducationResponse, ExperienceResponses, ProjectResponse, ReviewResponse
 async function getData() {
   try {
     const expResponse = fetch(process.env.NEXT_PUBLIC_API_URL + '/experiences')
-    const projectResponse = fetch(process.env.NEXT_PUBLIC_API_URL + '/projects')
+    const projectResponse = fetch(process.env.NEXT_PUBLIC_API_URL + '/projects?sort=order')
     const educationResponse = fetch(process.env.NEXT_PUBLIC_API_URL + '/educations')
     const reviewResponse = fetch(process.env.NEXT_PUBLIC_API_URL + '/reviews')
     const [experiences, projects, educations, reviews] = await Promise.all([
@@ -43,7 +43,7 @@ export default async function Home() {
   const data = await getData()
   return (
     <div className=''>
-      <Experiences data={data?.experiences.data.slice(0, 4) || []} showAll={data?.experiences?.results > 4} />
+      <Experiences data={data?.experiences.data.slice(0, 5) || []} showAll={data?.experiences?.results > 5} />
       <CallToAction />
       <Projects data={data?.projects.data.slice(0, 3) || []} showAll={data.projects?.results > 3} />
       <Recommendations data={data?.reviews.data.slice(0, 10) || []} showAll={data.reviews?.results > 10} />
