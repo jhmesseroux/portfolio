@@ -25,7 +25,15 @@ const Header = () => {
       </Link>
       <div className='flex flex-col lg:flex-row gap-6 items-start'>
         <div className='header-details flex flex-col items-center sm:items-start gap-2 flex-1'>
-          <h2 className='text-2xl sm:text-4xl font-bold text-violet-600 dark:text-blue-500 dark:text-opacity-80'>Messeroux Jean H.</h2>
+          <h2 className='text-2xl sm:text-4xl font-bold text-violet-600 dark:text-blue-500 dark:text-opacity-80'>
+            <span>Messeroux Jean H. {'    '}</span>
+
+            <Link href={'#GodsWord'} className='text-sm text-pink-500 font-normal dark:text-gray-400 hover:underline'>
+              <span>
+                {'    '} John 3:16 <div className='animate-bounce inline-block'>&darr;</div>
+              </span>
+            </Link>
+          </h2>
           <p className='text-base text-center sm:text-left bg-red-300d text-balance'>
             Co-Founder and CTO at{' '}
             <Link className='text-pink-500 dark:text-pink-500 hover:underline' href={'https://dooke.app'} target='_blank'>
@@ -34,7 +42,7 @@ const Header = () => {
             , Software Engineer with 5+ years of experience in full-stack development. I excel in delivering high-quality solutions,
             leveraging innovative technologies, and driving successful collaborations.
           </p>
-          <div className='flex items-center flex-wrap gap-4 mt-3'>
+          <div className='flex items-center justify-center flex-wrap gap-4 mt-3'>
             <a
               href='/assets/docs/cv.pdf'
               download
@@ -44,6 +52,15 @@ const Header = () => {
               <span>Resume/CV</span>
             </a>
             <LinkedIn />
+            <a
+              href='mailto:jhmcode.dev@gmail.com'
+              className='py-2 px-3.5 flex  text-center flex-auto justify-center items-center group gap-2 duration-700 transition-all  bg-slate-50 dark:bg-slate-800 text-gray-900 hover:bg-violet-100  dark:text-white outline-none rounded dark:hover:bg-slate-900 dark:hover:text-white'
+            >
+              <span>{`Let's talk`}</span>
+              <span className='group-hover:opacity-90 transition-all animate-pulse dark:text-white text-slate-600  duration-1000 opacity-10'>
+                &rarr;
+              </span>
+            </a>
           </div>
         </div>
         <div className='relative download-dooke-links w-full lg:max-w-[250px] bg-white dark:bg-slate-800 shadow-1 dark:shadow p-4 rounded-xl flex flex-col items-center justify-center'>

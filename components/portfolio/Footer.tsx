@@ -49,6 +49,15 @@ const Footer = () => {
           <Image src={'/assets/images/dookeapp.png'} alt='Dooke App' className='mt-4' width={150} height={150} />
         </div>
       </div>
+      <div
+        id='GodsWord'
+        className='flex flex-col bg-white shadow-1 p-4 rounded-xl w-full sm:max-w-[420px] dark:bg-gray-900 dark:shadow m-8'
+      >
+        <span className='font-bold'>John 3:16 NIV</span>
+        <div className='text-balance'>
+          For God so loved the world that he gave his one and only Son, that whoever believes in him shall not perish but have eternal life.
+        </div>
+      </div>
     </footer>
   )
 }
