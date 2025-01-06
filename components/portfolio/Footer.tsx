@@ -1,6 +1,7 @@
 import React from 'react'
 import { CopyButton } from '..'
 import Medias from './Medias'
+import Image from 'next/image'
 
 const Footer = () => {
   return (
@@ -11,7 +12,7 @@ const Footer = () => {
         backgroundSize: 'cover',
         backgroundPosition: 'center'
       }}
-      className='p-6 mb-12 flex flex-col gap-6 items-center justify-start sm:justify-center mt-auto'
+      className='p-6 mb-12 flex flex-col gap-6 items-center justify-start sm:justify-center mt-auto relative'
     >
       <Medias />
 
@@ -41,6 +42,12 @@ const Footer = () => {
       <div className='version flex items-center gap-1.5 flex-wrap justify-center'>
         <strong>Location : </strong>
         <span className='text-brand'>Montreal,Canada</span>
+      </div>
+      <div className='relative w-full  items-center flex justify-center mt-6'>
+        <div className='lg:absolute lg:right-8 lg:bottom-0 download-dooke-links w-full sm:w-[170px] self-end shadow-1 dark:shadow p-4 rounded-xl flex flex-col items-center justify-center'>
+          <div className='text-balance text-center'>Download Dooke for free today</div>
+          <Image src={'/assets/images/dookeapp.png'} alt='Dooke App' className='mt-4' width={150} height={150} />
+        </div>
       </div>
     </footer>
   )

@@ -18,7 +18,7 @@ const CertificationsAndLicenses = ({ data }: { data: IEducation[] }) => {
               className='certification-item  w-full sm:hover:scale-[1.05]  shadow-1 dark:shadow-none duration-700 transition-all cursor-pointer  flex-grow'
               key={index}
             >
-              <div className='dark:bg-slate-900 p-6 flex flex-col gap-3 group rounded'>
+              <div className='dark:bg-slate-900 p-6 flex flex-col gap-3 group rounded-xl'>
                 <div>
                   <h3 className='certifications-name text-2xl sm:text-3xl font-semibold '>{education.name}</h3>
                   <a

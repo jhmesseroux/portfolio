@@ -59,7 +59,7 @@ const Recommendations = ({ data }: { data: IReview[]; showAll: boolean }) => {
             {data.map((review, i) => (
               <div
                 key={i}
-                className='w-[380px] bg-white dark:bg-slate-900 shadow-1 dark:shadow-none p-4 relative  rounded hover:bg-gradient'
+                className='w-[380px] bg-white dark:bg-slate-900 shadow-1 dark:shadow-none p-4 relative  rounded-xl  hover:bg-gradient'
               >
                 <div className='absolute -top-5 left-4 w-10 h-10 rounded-full shadow bg-brand flex items-center justify-center '>
                   <span className='text-white text-2xl'>&#10077;</span>

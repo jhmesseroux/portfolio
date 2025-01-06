@@ -4,7 +4,7 @@ import { IEducation } from '@/interfaces'
 
 const Educations = ({ data }: { data: IEducation[] }) => {
   return (
-    <div className='educations my-8 p-4 sm:p-12 bg-gradient-to-b from-white via-gray-100 to-white   dark:from-slate-950  dark:via-gray-950 rounded-md'>
+    <div className='educations my-8 p-4 sm:p-12 bg-gradient-to-b from-white via-gray-100 to-white   dark:from-slate-950  dark:via-gray-900 rounded-md'>
       <div className='projects-header flex items-center  gap-4'>
         <span className='text-lg sm:text-3xl text-brand font-extrabold'>Educations</span>
         <EducationIcon />
@@ -15,7 +15,7 @@ const Educations = ({ data }: { data: IEducation[] }) => {
           .map((education, index) => (
             <div
               key={index}
-              className='w-full bg-white dark:bg-slate-900  hover:border-l-8 rounded-[4px] hover:shadow  border-slate-300 dark:border-slate-700 hover:border-brand dark:hover:border-brand flex-grow'
+              className='w-full bg-white dark:bg-slate-900   rounded-xl hover:shadow  border-slate-300 dark:border-slate-700 hover:border-brand dark:hover:border-brand flex-grow'
             >
               <div className='education p-8 flex flex-col gap-3 h-full  hover:skew-y-1  duration-700 transition-transform cursor-pointer  group hover:scale-105 '>
                 <div className='education-title'>

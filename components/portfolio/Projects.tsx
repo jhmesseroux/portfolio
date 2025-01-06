@@ -1,6 +1,6 @@
 import Link from 'next/link'
 import React from 'react'
-import { Skill, LinkIcon, GithubIcon, ExternalLinkIcon } from '..'
+import { Skill, GithubIcon, ExternalLinkIcon } from '..'
 import Image from 'next/image'
 import { IProject } from '@/interfaces'
 import { cn } from '@/helpers'
@@ -27,8 +27,8 @@ const Projects = ({ data, showAll = false, className, ...rest }: Props) => {
   return (
     <section {...rest} className={cn('projects-container mt-8 p-4', className)}>
       <div className='flex items-center justify-between gap-3 flex-wrap'>
-        <div className='projects-header flex items-center justify-center gap-2 sm:gap-4'>
-          <span className='text-lg sm:text-3xl text-brand font-extrabold'>Projects</span>
+        <div className='projects-header flex items-center justify-center gap-2 md:gap-4'>
+          <span className='text-lg md:text-3xl text-brand font-extrabold'>Projects</span>
           <CodeIcon />
         </div>
         {showAll && (
@@ -39,20 +39,24 @@ const Projects = ({ data, showAll = false, className, ...rest }: Props) => {
       </div>
       <div className='projects flex flex-col gap-6 my-6' id='projects'>
         {data.map((item) => (
-          <div key={item.title} className='project h-auto w-full flex flex-col sm:flex-row gap-4 group cursor-pointer overflow-hidden pb-6'>
-            <div className='project-photo overflow-hidden object-cover w-full sm:w-[350px] bg-blue-600  h-[250px] relative'>
+          <div
+            key={item.title}
+            className='project h-auto w-full flex flex-col md:flex-row gap-4 group cursor-pointer overflow-hidden pb-6 hover:shadow-1'
+          >
+            <div className='project-photo overflow-hidden object-cover aspect-video  rounded-xl  bg-gray-200 dark:bg-slate-800  h-[250px] relative'>
               <Image
                 src={item.photo}
                 alt={item.title}
+                // onLoad={(e) => console.log(e.target)}
                 // width={}
                 // height={0}
                 layout='fill'
                 objectFit='cover'
-                className='w-full h-full group-hover:scale-110 duration-500 transition-transform'
+                className='w-full h-full group-hover:scale-105 duration-500 transition-transform rounded-xl'
               />
             </div>
-            <div className='details-project p-0 sm:px-4 flex flex-col gap-1 flex-1'>
-              <h3 className='font-bold text-lg sm:text-2xl text-slate-700 dark:text-slate-400 group-hover:text-brand duration-500 transition-colors'>
+            <div className='details-project p-0 md:px-4 flex flex-col gap-1 flex-1'>
+              <h3 className='font-bold text-lg md:text-2xl text-slate-700 dark:text-slate-400 group-hover:text-brand duration-500 transition-colors'>
                 {item.title}
               </h3>
               <div className='flex items-center  gap-2'>
@@ -76,8 +80,8 @@ const Projects = ({ data, showAll = false, className, ...rest }: Props) => {
                     target='_blank'
                     className='hover:border-none border-brand border-[1px] text-brand flex items-center w-fit gap-1 hover:text-white duration-300 transition-colors px-2.5 py-1.5 rounded-[4px] shadow animatedBorder'
                   >
-                    <LinkIcon />
-                    <span>Demo</span>
+                    {/* <LinkIcon /> */}
+                    <span>Try it</span>
                     <ExternalLinkIcon className='w-4' />
                   </a>
                 )}
