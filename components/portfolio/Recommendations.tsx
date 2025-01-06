@@ -52,7 +52,7 @@ const Recommendations = ({ data }: { data: IReview[]; showAll: boolean }) => {
         className='scroller'
         data-speed='slow'
         // @ts-expect-error
-        style={{ '--_animation-duration': '100s' }}
+        style={{ '--_animation-duration': '90s' }}
       >
         <div className='scroller__inner pauseable  my-6 '>
           <div className='flex  gap-8 justify-start items-start  p-4'>
