@@ -1,3 +1,4 @@
+import CallToAction from '@/components/portfolio/CallToAction'
 import Projects from '@/components/portfolio/Projects'
 import { ProjectResponse } from '@/interfaces'
 import { Metadata } from 'next'
@@ -22,6 +23,7 @@ const MyProjects = async () => {
   return (
     <div className='my-6'>
       <Projects data={projects.data} />
+      <CallToAction />
     </div>
   )
 }

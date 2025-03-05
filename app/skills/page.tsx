@@ -30,7 +30,7 @@ const Skills = async () => {
           </div>
         ))}
       </div>
-      <CallToAction />
+      <CallToAction className='my-12' />
     </div>
   )
 }

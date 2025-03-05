@@ -2,7 +2,7 @@ import type { Config } from 'tailwindcss'
 
 const config: Config = {
   content: ['./pages/**/*.{js,ts,jsx,tsx,mdx}', './components/**/*.{js,ts,jsx,tsx,mdx}', './app/**/*.{js,ts,jsx,tsx,mdx}'],
-  darkMode: 'class',
+  darkMode: ['class'],
   theme: {
     extend: {
       colors: {
@@ -18,6 +18,10 @@ const config: Config = {
       },
       animation: {
         'border-beam': 'border-beam calc(var(--duration)*1s) infinite linear'
+      },
+      boxShadow: {
+        '1': 'var(--shadow-1)',
+        '2': 'var(--shadow-2)'
       },
       keyframes: {
         'border-beam': {

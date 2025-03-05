@@ -38,7 +38,7 @@ const Recommendations = ({ data }: { data: IReview[]; showAll: boolean }) => {
     }
   }, [])
   return (
-    <div className='my-8 p-4' id='recommendations'>
+    <div className='my-20 p-4' id='recommendations'>
       <div className='flex items-center justify-between gap-3 flex-wrap'>
         <div className='experiences-header flex items-center justify-center gap-2 sm:gap-4 '>
           <span className='text-lg sm:text-3xl text-brand font-extrabold'>Recommendations</span>

@@ -1,11 +1,11 @@
 import Link from 'next/link'
 import React from 'react'
 import { Skill, GithubIcon, ExternalLinkIcon } from '..'
-import Image from 'next/image'
 import { IProject } from '@/interfaces'
 import { cn } from '@/helpers'
 import SocialLink from './SocialLink'
 import CodeIcon from '../icons/coding/CodeIcon'
+import FadeInImage from '../global/FadeInImage'
 interface Props extends React.HTMLAttributes<HTMLHtmlElement> {
   data: IProject[]
   showAll?: boolean
@@ -25,7 +25,7 @@ const Projects = ({ data, showAll = false, className, ...rest }: Props) => {
   }
 
   return (
-    <section {...rest} className={cn('projects-container mt-8 p-4', className)}>
+    <section {...rest} className={cn('mt-8 p-4 ', className)}>
       <div className='flex items-center justify-between gap-3 flex-wrap'>
         <div className='projects-header flex items-center justify-center gap-2 md:gap-4'>
           <span className='text-lg md:text-3xl text-brand font-extrabold'>Projects</span>
@@ -41,21 +41,10 @@ const Projects = ({ data, showAll = false, className, ...rest }: Props) => {
         {data.map((item) => (
           <div
             key={item.title}
-            className='project h-auto w-full flex flex-col md:flex-row gap-4 group cursor-pointer overflow-hidden pb-6 hover:shadow-1'
+            className='project   w-full flex flex-col rounded-xl   group cursor-pointer overflow-hidden shadow-2 hover:shadow-1'
           >
-            <div className='project-photo overflow-hidden object-cover aspect-video  rounded-xl  bg-gray-200 dark:bg-slate-800  h-[250px] relative'>
-              <Image
-                src={item.photo}
-                alt={item.title}
-                // onLoad={(e) => console.log(e.target)}
-                // width={}
-                // height={0}
-                layout='fill'
-                objectFit='cover'
-                className='w-full h-full group-hover:scale-105 duration-500 transition-transform rounded-xl'
-              />
-            </div>
-            <div className='details-project p-0 md:px-4 flex flex-col gap-1 flex-1'>
+            <FadeInImage alt={item.title} path={item.photo} />
+            <div className='details-project  flex flex-col gap-1 flex-1 px-4 pt-2 pb-6'>
               <h3 className='font-bold text-lg md:text-2xl text-slate-700 dark:text-slate-400 group-hover:text-brand duration-500 transition-colors'>
                 {item.title}
               </h3>
@@ -81,7 +70,7 @@ const Projects = ({ data, showAll = false, className, ...rest }: Props) => {
                     className='hover:border-none border-brand border-[1px] text-brand flex items-center w-fit gap-1 hover:text-white duration-300 transition-colors px-2.5 py-1.5 rounded-[4px] shadow animatedBorder'
                   >
                     {/* <LinkIcon /> */}
-                    <span>Try it</span>
+                    <span>See the demo</span>
                     <ExternalLinkIcon className='w-4' />
                   </a>
                 )}
