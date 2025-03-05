@@ -22,9 +22,7 @@ const Footer = () => {
             <CopyButton />
             <input
               type='email'
-              value='jhmcode.dev@gmail.com'
-              placeholder='jhmcode.dev@gmail.com'
-              title='jhmcode.dev@gmail.com'
+              value='jhm******@gmail.com'
               readOnly
               disabled
               className='bg-transparent border border-l-0 border-slate-300 dark:border-slate-700 p-2   truncate w-full sm:w-[200px]'
@@ -44,9 +42,9 @@ const Footer = () => {
         <span className='text-brand'>Montreal,Canada</span>
       </div>
       <div className='relative w-full  items-center flex justify-center mt-6'>
-        <div className='lg:absolute lg:right-8 lg:bottom-0 download-dooke-links w-full sm:w-[170px] self-end shadow-1 dark:shadow p-4 rounded-xl flex flex-col items-center justify-center'>
+        <div className='lg:absolute lg:right-8 lg:bottom-0 download-dooke-links w-full sm:w-[170px] self-end  p-4 rounded-xl flex flex-col items-center justify-center'>
           <div className='text-balance text-center'>Download Dooke for free today</div>
-          <Image src={'/assets/images/dookeapp.png'} alt='Dooke App' className='mt-4' width={150} height={150} />
+          <Image src={'/assets/images/dookeapp.png'} alt='Dooke App' className='mt-4 w-full' width={150} height={150} />
         </div>
       </div>
       <div

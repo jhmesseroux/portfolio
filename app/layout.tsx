@@ -5,9 +5,9 @@ import SmallHeader from '@/components/portfolio/SmallHeader'
 import Header from '@/components/portfolio/Header'
 import Footer from '@/components/portfolio/Footer'
 import MobileSideBar from '@/components/portfolio/MobileSideBar'
-import ThemeSwitcher from '@/components/ThemeSwitcher'
 import { GoToTop } from '@/components'
 import ThemeContext from '@/context/ThemeContext'
+import MenuTabs from '@/components/portfolio/MenuTabs'
 
 // const inter = Inter({ subsets: ['latin'] })
 
@@ -28,11 +28,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className='bg-white max-w-6xl relative m-auto min-h-screen flex flex-col  justify-between dark:bg-slate-950 text-slate-700 dark:text-slate-400'>
         <ThemeContext>
-          <ThemeSwitcher className='absolute right-12  top-3' />
+          {/* <ThemeSwitcher className='absolute right-12  top-3' /> */}
           <SmallHeader />
           <Header />
           <main className='flex flex-col '>{children}</main>
           <Footer />
+          <MenuTabs />
           <MobileSideBar />
           <GoToTop />
         </ThemeContext>

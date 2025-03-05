@@ -1,3 +1,4 @@
+import CallToAction from '@/components/portfolio/CallToAction'
 import Experiences from '@/components/portfolio/Experiences'
 import { ExperienceResponses } from '@/interfaces'
 import { Metadata } from 'next'
@@ -21,6 +22,7 @@ const MyExperiences = async () => {
   return (
     <div className='max-w-5xl m-auto my-6 p-6'>
       <Experiences data={experiences.data} />
+      <CallToAction />
     </div>
   )
 }
