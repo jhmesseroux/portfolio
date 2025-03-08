@@ -43,15 +43,15 @@ const Header = () => {
             <a
               href='/assets/docs/cv.pdf'
               download
-              className='hover:bg-violet-600 py-2 px-3.5 rounded-[4px] border border-violet-600 flex items-center gap-0.5 hover:shadow text-brand dark:bg-transparent dark:border-violet-400 dark:border-[1px] dark:hover:bg-brand hover:text-white dark:hover:border-brand duration-500 transition-colors flex-1'
+              className='hover:bg-violet-600 py-2 px-3.5 rounded-[4px] border border-violet-600 flex items-center gap-0.5 hover:shadow text-brand dark:bg-transparent dark:border-violet-400 dark:border-[1px] dark:hover:bg-brand hover:text-white dark:hover:border-brand duration-500 transition-colors flex-auto'
             >
               <DownloadIcon />
               <span>Resume/CV</span>
             </a>
-            <LinkedIn className='flex-1' />
+            <LinkedIn className='flex-auto' />
             <a
               href='mailto:jhmcode.dev@gmail.com'
-              className='py-2 px-3.5 flex  text-center justify-center items-center group gap-2 duration-700 transition-all  bg-slate-50 dark:bg-slate-800 text-gray-900 hover:bg-violet-100  dark:text-white outline-none rounded dark:hover:bg-slate-900 dark:hover:text-white flex-1'
+              className='py-2 px-3.5 flex  text-center justify-center items-center group gap-2 duration-700 transition-all  bg-slate-50 dark:bg-slate-800 text-gray-900 hover:bg-violet-100  dark:text-white outline-none rounded dark:hover:bg-slate-900 dark:hover:text-white flex-auto'
             >
               <span>{`Let's talk`}</span>
               <span className='group-hover:opacity-90 transition-all animate-pulse dark:text-white text-slate-600  duration-1000 opacity-10'>

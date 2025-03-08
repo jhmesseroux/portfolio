@@ -4,7 +4,7 @@ import Link from 'next/link'
 import StarIcon from '../icons/StarIcon'
 import BriefCaseIcon from '../icons/BriefCaseIcon'
 import FadeInImage from '../global/FadeInImage'
-import EmailIcon from '../icons/EmailIcon'
+import WhatsappIcon from '../icons/WhatsappIcon'
 interface Props extends React.HTMLAttributes<HTMLHtmlElement> {}
 const MenuTabs = ({ className }: Props) => {
   return (
@@ -59,12 +59,12 @@ const MenuTabs = ({ className }: Props) => {
       </div>
 
       <div className='flex items-center justify-center gap-x-2'>
-        <Link href='/experiences' data-tooltip='Mail me' className='group tooltip top'>
+        <Link href={'https://wa.me/+15147027882'} data-tooltip='Whatsapp me' className='group tooltip top'>
           <button
             type='button'
             className='w-12 h-12 bgd-gradient rounded-full flex items-center object-cover justify-center overflow-hidden duration-300 transition-colors'
           >
-            <EmailIcon className='group-hover:scale-125 duration-300 transition-all text-white font-bold' />
+            <WhatsappIcon className='group-hover:scale-125 duration-300 transition-all text-white font-bold' />
           </button>
         </Link>
       </div>
