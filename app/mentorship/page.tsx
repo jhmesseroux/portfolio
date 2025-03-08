@@ -109,7 +109,7 @@ const MentorShip = () => {
               </div>
               <div
                 className={cn(
-                  'w-24 h-24 bg-gradient-to-br rounded-full flex items-center justify-center border-4 border-white z-20 absolute bottom-[-40px] left-[50%] translate-x-[-50%] overflow-hidden',
+                  'w-16 h-16 md:w-24 md:h-24 bg-gradient-to-br rounded-full flex items-center justify-center border-4 border-white z-20 absolute bottom-[-40px] left-[50%] translate-x-[-50%] overflow-hidden',
                   {
                     'from-gray-400 to-gray-500': item.id === 1,
                     'from-amber-400 to-amber-500': item.id === 2
@@ -117,10 +117,16 @@ const MentorShip = () => {
                 )}
               >
                 {item.id === 1 && (
-                  <FadeInImage path='/assets/images/mentorship.webp' imageAndBoxClassName='aspect-square object-cover w-28 h-28' />
+                  <FadeInImage
+                    path='/assets/images/mentorship.webp'
+                    imageAndBoxClassName='aspect-square object-cover w-20 h-20  md:w-28 md:h-28'
+                  />
                 )}
                 {item.id === 2 && (
-                  <FadeInImage path='/assets/images/saas.webp' imageAndBoxClassName='aspect-square object-cover w-28 h-28' />
+                  <FadeInImage
+                    path='/assets/images/saas.webp'
+                    imageAndBoxClassName='aspect-square object-cover w-20 h-20  md:w-28 md:h-28'
+                  />
                 )}
               </div>
             </div>
@@ -158,7 +164,7 @@ const MentorShip = () => {
                   }
                 )}
               >
-                <span>{item.id === 1 ? 'Get Personalized Coaching' : 'Build you website/App now'}</span>
+                <span>{item.id === 1 ? 'Get Personalized Coaching' : "Let's Work Together"}</span>
                 <ChevronRightIcon className='w-5 h-5' />
               </Link>
             </div>
