@@ -3,15 +3,12 @@ import { BriefCaseIcon, Skill } from '..'
 import Link from 'next/link'
 import { cn } from '@/helpers'
 import { IExperience } from '@/interfaces'
-import { BorderBeam } from '../magicui/border-beam'
 interface Props extends React.HTMLAttributes<HTMLHtmlElement> {
   data: IExperience[]
   showAll?: boolean
 }
 
 const Experiences = ({ data, showAll = false, className, ...rest }: Props) => {
-  const firstItem = data[0]
-  const restItems = data.slice(1)
   return (
     <section className={cn('experiences-container mt-8 md:p-4', className)} {...rest}>
       <div className='flex items-center justify-between gap-3 flex-wrap px-3'>
@@ -25,33 +22,9 @@ const Experiences = ({ data, showAll = false, className, ...rest }: Props) => {
           </Link>
         )}
       </div>
-      {/* first item */}
-      {firstItem && (
-        <div className='relative '>
-          <ExperienceItem item={firstItem} className='flex-grow col-span-2 my-6' />
-          <BorderBeam />
-        </div>
-      )}
-
       <div className='experiences  gap-8 flex flex-wrap' id='experiences'>
-        {/* grid grid-cols-1 md:grid-cols-2 */}
-        {restItems.slice(0, 4).map((item, i) => (
-          <ExperienceItem
-            key={i}
-            item={item}
-            className={cn('', {
-              'w-full md:w-[430px]': i === 0,
-              'w-full basis-12/12 md:basis-5/12 md:flex-1': i === 1,
-              'w-full  md:w-[470px]': i === 2,
-              'w-full basis-12/12 md:basis-7/12 md:flex-1': i === 3
-            })}
-          />
-        ))}
-      </div>
-      {/* columns experiences */}
-      <div className='experiences gap-8 mt-6 columns-1 lg:columns-2' id='experiences'>
-        {restItems.slice(5).map((item, i) => (
-          <ExperienceItem key={i} item={item} className='mb-6 flex-1 w-full md:min-w-[420px]  flex-grow  break-inside-avoid' />
+        {data.map((item, i) => (
+          <ExperienceItem key={i} item={item} />
         ))}
       </div>
     </section>
@@ -66,8 +39,8 @@ interface IExperienceItemProps extends React.HTMLAttributes<HTMLDivElement> {
 
 const ExperienceItem = ({ item, className }: IExperienceItemProps) => {
   return (
-    <div className={cn('rounded-lg dark:hover:translate-y-2 experience dark:shadow-none ', className)}>
-      <div className='flex flex-col  gap-2   group cursor-pointer hover:scale-105  shadow-2 hover:shadow-1 transition-all duration-300 p-6 rounded-lg bg-white dark:bg-slate-950 h-full'>
+    <div className={cn('rounded-lg w-full dark:hover:translate-y-1 experience dark:shadow-none ', className)}>
+      <div className='flex flex-col  gap-2   group cursor-pointer hover:scale-[1.02]  shadow-2 hover:shadow-1 transition-all duration-500 p-6 rounded-lg bg-white dark:bg-slate-950 h-full'>
         <h3 className=' flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-4 text-slate-700 dark:text-slate-500 group-hover:text-brand dark:group-hover:text-violet-500 duration-500 transition-colors'>
           {item.demoLink ? (
             <Link href={item.demoLink} target='_blank'>
