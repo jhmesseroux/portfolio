@@ -13,3 +13,17 @@ export const openDownloadLink = (type: 'ios' | 'android') => {
     window.open(process.env.NEXT_PUBLIC_DOOKE_ANDROID_APP_URL)
   }
 }
+
+export const estimateReadingTime = (htmlContent: string, wordsPerMinute: number = 200): number => {
+  // Remove HTML tags using DOMParser
+  const parser = new DOMParser()
+  const doc = parser.parseFromString(htmlContent, 'text/html')
+  const text = doc.body.textContent || ''
+
+  // Count words
+  const words = text.trim().split(/\s+/)
+  const wordCount = words.length
+
+  // Calculate reading time and round up
+  return Math.ceil(wordCount / wordsPerMinute)
+}

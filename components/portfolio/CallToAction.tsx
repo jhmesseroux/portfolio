@@ -1,6 +1,6 @@
 import React from 'react'
 import LinkedIn from '../LinkedIn'
-import { BorderBeam } from '../magicui/border-beam'
+// import { BorderBeam } from '../magicui/border-beam'
 import { cn } from '@/helpers'
 
 interface Props extends React.HTMLAttributes<HTMLDivElement> {}
@@ -27,7 +27,7 @@ const CallToAction = ({ className, ...rest }: Props) => {
             <span>Mail me</span>
             <span className='group-hover:opacity-90 transition-all animate-pulse  duration-1000 opacity-10'>&rarr;</span>
           </a>
-          <BorderBeam />
+          {/* <BorderBeam /> */}
           {/* <ShineBorder shineColor={['red', 'blue', 'yellow']} /> */}
         </div>
       </div>

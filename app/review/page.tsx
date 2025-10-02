@@ -146,6 +146,7 @@ const AddReview = () => {
   const [loading, setLoading] = useState(false)
   const searchParams = useSearchParams()
   const locale: localeType = (searchParams.get('locale') as localeType) || 'en'
+  const [reviewText, setReviewText] = useState('')
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     setError('')
@@ -197,14 +198,19 @@ const AddReview = () => {
 
         <form className={loading ? 'is-loading' : ''} onSubmit={handleSubmit}>
           <Input
-            className='max-h-28'
+            className='max-h-28 min-h-12 relative pb-6'
             disabled={loading}
             label={formEntries[locale].review}
             required
+            value={reviewText}
+            onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => setReviewText(e.target.value)}
             name='review'
+            minLength={10}
+            maxLength={350}
             placeholder={formEntries[locale].placeholder}
             textArea
             hasError={errors?.review}
+            templateExtra={() => <span className='text-[10px]  text-violet-400 dark:text-slate-500'>{reviewText.length}/350</span>}
           />
           <div className='flex flex-col sm:flex-row  md:gap-4'>
             <fieldset className='w-full flex flex-col '>
@@ -296,8 +302,12 @@ const AddReview = () => {
           {error && <FormError className='border border-red-400 border-dashed mb-4' text={error} />}
           {success && <div className='border-green-400 dark:bg-green-800/20 text-green-500 bg-green-100 p-3  my-4'>{success}</div>}
 
-          <div className='sign-in__form__group flex items-center mt-6 '>
-            <button className='w-fit bg-violet-500 text-white hover:bg-violet-400  py-2 px-4 rounded' type='submit' disabled={loading}>
+          <div className='sign-in__form__group flex items-center mt-6'>
+            <button
+              className='w-full bg-violet-500 text-white hover:bg-violet-400  py-2 px-4 rounded disabled:opacity-40'
+              type='submit'
+              disabled={loading || reviewText.length < 10}
+            >
               {loading ? 'Submitting...' : formEntries[locale].submit}
             </button>
           </div>

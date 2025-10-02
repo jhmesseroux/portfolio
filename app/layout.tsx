@@ -2,12 +2,11 @@ import type { Metadata } from 'next'
 // import { Inter } from 'next/font/google'
 import './globals.css'
 import SmallHeader from '@/components/portfolio/SmallHeader'
-import Header from '@/components/portfolio/Header'
 import Footer from '@/components/portfolio/Footer'
 import MobileSideBar from '@/components/portfolio/MobileSideBar'
-import { GoToTop } from '@/components'
 import ThemeContext from '@/context/ThemeContext'
 import MenuTabs from '@/components/portfolio/MenuTabs'
+import GoToTop from '@/components/global/GoToTop'
 
 // const inter = Inter({ subsets: ['latin'] })
 
@@ -30,8 +29,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <ThemeContext>
           {/* <ThemeSwitcher className='absolute right-12  top-3' /> */}
           <SmallHeader />
-          <Header />
-          <main className='flex flex-col '>{children}</main>
+          {/* <Header /> */}
+          {children}
           <Footer />
           <MenuTabs />
           <MobileSideBar />

@@ -43,7 +43,7 @@ const Footer = () => {
       </div>
       <div className='relative w-full  items-center flex justify-center mt-6'>
         <div className='lg:absolute lg:right-8 lg:bottom-0 download-dooke-links w-full sm:w-[170px] self-end  p-4 rounded-xl flex flex-col items-center justify-center'>
-          <div className='text-balance text-center'>Download Dooke for free today</div>
+          <div className='text-balance text-center'>Download DooBible today</div>
           <Image src={'/assets/images/dookeapp.png'} alt='Dooke App' className='mt-4 w-full' width={150} height={150} />
         </div>
       </div>

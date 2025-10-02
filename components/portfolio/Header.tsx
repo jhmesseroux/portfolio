@@ -3,6 +3,7 @@ import { DownloadIcon } from '..'
 import Link from 'next/link'
 import LinkedIn from '../LinkedIn'
 import DownloadApp from '@/app/dooke/download/DownloadApp'
+import ToggleFocus from '../global/ToggleFocus'
 
 const Header = () => {
   return (
@@ -39,15 +40,36 @@ const Header = () => {
             , Software Engineer with 5+ years of experience in full-stack development. I excel in delivering high-quality solutions,
             leveraging innovative technologies, and driving successful collaborations.
           </p>
-          <div className='flex items-center justify-center flex-wrap gap-4 mt-3'>
-            <a
-              href='/assets/docs/cv.pdf'
-              download
-              className='hover:bg-violet-600 py-2 px-3.5 rounded-[4px] border border-violet-600 flex items-center gap-0.5 hover:shadow text-brand dark:bg-transparent dark:border-violet-400 dark:border-[1px] dark:hover:bg-brand hover:text-white dark:hover:border-brand duration-500 transition-colors flex-auto'
+          <div className='flex items-center justify-center flex-wrap gap-4 mt-3 rounded-[4px] '>
+            <ToggleFocus
+              className='border hover:shadow text-brand border-violet-600 hover:bg-violet-600 py-2 px-3.5 hover:text-white duration-500 transition-colors rounded-[4px] cursor-pointer'
+              trigger={
+                <div className='  flex items-center gap-0.5  dark:bg-transparent dark:border-violet-400 dark:border-[1px] dark:hover:bg-brand dark:hover:border-brand  flex-auto'>
+                  <DownloadIcon />
+                  <span>Resume/CV</span>
+                </div>
+              }
             >
-              <DownloadIcon />
-              <span>Resume/CV</span>
-            </a>
+              <div className='bg-white p-2 flex flex-col gap-y-2 shadow-1 rounded-sm w-full min-w-[170px]'>
+                <a
+                  href='/assets/docs/cv-French.pdf'
+                  download
+                  className='hover:bg-violet-600 py-2 px-3.5 rounded-[4px] border border-violet-600 flex items-center gap-0.5 hover:shadow text-brand dark:bg-transparent dark:border-violet-400 dark:border-[1px] dark:hover:bg-brand hover:text-white dark:hover:border-brand duration-500 transition-colors flex-auto'
+                >
+                  <DownloadIcon />
+                  <span>French</span>
+                </a>
+                <a
+                  href='/assets/docs/cv-English.pdf'
+                  download
+                  className='hover:bg-pink-600 py-2 px-3.5 rounded-[4px] border border-pink-600 flex items-center gap-0.5 hover:shadow text-pink-600 dark:bg-transparent dark:border-pink-400 dark:border-[1px] dark:hover:bg-brand hover:text-white dark:hover:border-brand duration-500 transition-colors flex-auto'
+                >
+                  <DownloadIcon />
+                  <span>English</span>
+                </a>
+              </div>
+            </ToggleFocus>
+
             <LinkedIn className='flex-auto' />
             <a
               href='mailto:jhmcode.dev@gmail.com'
@@ -61,7 +83,7 @@ const Header = () => {
           </div>
         </div>
         <div className='relative download-dooke-links w-full lg:max-w-[250px] bg-white dark:bg-slate-800 shadow-1 dark:shadow p-4 rounded-xl  flex-col items-center justify-center hidden sm:flex'>
-          <div className='text-balance text-center'>Download Dooke for free today</div>
+          <div className='text-balance text-center'>Download DooBible for free today</div>
           <DownloadApp className='flex-col sm:flex-col w-full' />
         </div>
       </div>

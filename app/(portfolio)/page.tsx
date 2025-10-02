@@ -11,7 +11,7 @@ async function getData() {
     const expResponse = fetch(process.env.NEXT_PUBLIC_API_URL + '/experiences')
     const projectResponse = fetch(process.env.NEXT_PUBLIC_API_URL + '/projects?sort=order')
     const educationResponse = fetch(process.env.NEXT_PUBLIC_API_URL + '/educations')
-    const reviewResponse = fetch(process.env.NEXT_PUBLIC_API_URL + '/reviews')
+    const reviewResponse = fetch(process.env.NEXT_PUBLIC_API_URL + '/reviews?show=1')
     const [experiences, projects, educations, reviews] = await Promise.all([
       expResponse,
       projectResponse,

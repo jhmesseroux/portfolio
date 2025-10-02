@@ -127,3 +127,48 @@ export interface Author {
   facebook: string
   position: string
 }
+
+export type STATUS = 'PUBLISHED' | 'DRAFT' | 'ARCHIVED'
+export interface IRole {
+  id: number
+  name: string
+  createdAt: Date
+  updatedAt: Date
+}
+
+export interface IUser {
+  id: number
+  username: string
+  email: string
+  password: string
+  name: string
+  active: boolean
+  avatar: string | null
+  // phoneNumber: string | null
+  // countryCode: string | null
+  // country: string | null
+  // sex: 'M' | 'F' | null
+  idRole: number
+  role: IRole
+  verified: Date | null
+  createdAt: Date
+  updatedAt: Date
+}
+
+export interface IBlog {
+  id: number
+  title: string
+  thumbnail: string
+  content: string
+  slug: string
+  excerpt: string
+  author: IUser
+  views: number
+  claps: number
+  status: STATUS
+  tags: string[] | null
+  publishedAt: Date | null
+  authorId: number
+  updatedAt: Date
+  createdAt: Date
+}
