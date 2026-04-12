@@ -29,6 +29,7 @@ import EducationIcon from './icons/EducationIcon'
 import CertificationIcon from './icons/CertificationIcon'
 import LinkedInIcon from './icons/socials/LinkedinIcon'
 import EmailIcon from './icons/EmailIcon'
+import XIcon from './icons/socials/XIcon'
 
 export {
   SunIcon,
@@ -61,5 +62,6 @@ export {
   HtmlIcon,
   EducationIcon,
   CertificationIcon,
-  EmailIcon
+  EmailIcon,
+  XIcon
 }

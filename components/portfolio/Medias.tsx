@@ -1,5 +1,5 @@
 import React from 'react'
-import { YoutubeIcon, GithubIcon, LinkedInIcon, InstagramIcon, TelegramIcon, EmailIcon } from '..'
+import { YoutubeIcon, GithubIcon, LinkedInIcon, InstagramIcon, TelegramIcon, EmailIcon, XIcon } from '..'
 import WhatsappIcon from '../icons/WhatsappIcon'
 import SocialLink from './SocialLink'
 
@@ -37,6 +37,12 @@ const Medias = () => {
           className='border-sky-500 text-sky-500 hover:bg-sky-600'
           title='Telegram'
           to='https://t.me/jhmesseroux'
+        />
+        <SocialLink
+          Icon={XIcon}
+          className='border-slate-700 dark:border-slate-300 text-slate-700 dark:text-slate-300 hover:bg-slate-900'
+          title='X (Twitter)'
+          to='https://x.com/jhmesseroux'
         />
         <SocialLink
           Icon={WhatsappIcon}

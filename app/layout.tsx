@@ -30,7 +30,8 @@ const personJsonLd = {
     'https://github.com/jhmesseroux',
     'https://www.youtube.com/@jhmesseroux',
     'https://www.instagram.com/jhmesseroux/',
-    'https://t.me/jhmesseroux'
+    'https://t.me/jhmesseroux',
+    'https://x.com/jhmesseroux'
   ],
   knowsAbout: ['JavaScript', 'TypeScript', 'React', 'Next.js', 'Node.js', 'React Native', 'Full Stack Development']
 }
