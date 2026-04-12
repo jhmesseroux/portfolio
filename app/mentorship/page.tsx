@@ -2,8 +2,15 @@ import FadeInImage from '@/components/global/FadeInImage'
 import CheckIcon from '@/components/icons/CheckIcon'
 import ChevronRightIcon from '@/components/icons/ChevronRightIcon'
 import { cn } from '@/helpers'
+import { buildMeta } from '@/helpers/seo'
 import Link from 'next/link'
 import React from 'react'
+
+export const metadata = buildMeta({
+  title: 'Mentorship & Development | Jean H. Messeroux',
+  description: 'Personalized mentorship in JavaScript, TypeScript, React, Next.js, Node.js, and SaaS development. Turn your ideas into reality.',
+  path: '/mentorship'
+})
 
 const MentorShip = () => {
   const services = [

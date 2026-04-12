@@ -62,16 +62,21 @@ const Projects = ({ data, showAll = false, headerRight, className, ...rest }: Pr
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.3 }}
           >
-          <Link
-            href={item.demoLink || item.gitFront || item.gitBack || '#'}
-            target='_blank'
-            rel='noreferrer'
+          <div
             data-testid={`project-item-${item.id}`}
-            className='project w-full flex flex-col rounded-md group cursor-pointer dark:border-slate-800 shadow-1 hover:-scale-1 transition-all duration-300 p-3 bg-white dark:bg-slate-900 hover:shadow-2'
+            className='project relative w-full flex flex-col rounded-md group cursor-pointer dark:border-slate-800 shadow-1 hover:-scale-1 transition-all duration-300 p-3 bg-white dark:bg-slate-900 hover:shadow-2'
           >
+            <Link
+              href={item.demoLink || item.gitFront || item.gitBack || '#'}
+              target='_blank'
+              rel='noreferrer'
+              aria-label={item.title}
+              className='absolute inset-0 z-[1] rounded-md'
+              tabIndex={-1}
+            />
             <div className='overflow-hidden rounded-md relative'>
               <FadeInImage alt={item.title} path={item.photo} className='group-hover:scale-105 transition-transform duration-500' />
-              <div className='hidden md:flex absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 items-center justify-center gap-3 p-4 pt-10'>
+              <div className='hidden md:flex absolute bottom-0 left-0 right-0 z-[2] bg-gradient-to-t from-black/80 via-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 items-center justify-center gap-3 p-4 pt-10'>
                 {item.demoLink && (
                   <a
                     href={item.demoLink}
@@ -120,9 +125,11 @@ const Projects = ({ data, showAll = false, headerRight, className, ...rest }: Pr
                 <span className='text-slate-300 dark:text-slate-600'>{DOT}</span>
                 <span className={levelColor(item.level) + ' text-sm'}>{item.level}</span>
               </div>
-              <CollapsibleText html={item.description} maxLength={150} />
-              <CollapsibleTags tags={item.skills} visibleCount={5} className='mt-3' />
-              <div className='project-actions mt-auto pt-4 flex items-center gap-3 md:hidden'>
+              <div className='relative z-[2]'>
+                <CollapsibleText html={item.description} maxLength={150} />
+              </div>
+              <CollapsibleTags tags={item.skills} visibleCount={5} className='relative z-[2] mt-3' />
+              <div className='project-actions relative z-[2] mt-auto pt-4 flex items-center gap-3 md:hidden'>
                 {item.demoLink && (
                   <a
                     href={item.demoLink}
@@ -154,7 +161,7 @@ const Projects = ({ data, showAll = false, headerRight, className, ...rest }: Pr
                 )}
               </div>
             </div>
-          </Link>
+          </div>
           </motion.div>
         ))}
       </div>

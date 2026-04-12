@@ -1,5 +1,6 @@
 'use client'
-import { GithubIcon, NodeIcon, MysqlIcon, ReactIcon, JavascriptIcon, TypeScriptIcon, CssIcon, HtmlIcon, TailwindIcon } from '@/components'
+import { GithubIcon, NodeIcon, MysqlIcon, ReactIcon, JavascriptIcon, TypeScriptIcon, TailwindIcon } from '@/components'
+import CodeIcon from '@/components/icons/coding/CodeIcon'
 import React, { useEffect } from 'react'
 
 const SkillsBox = () => {
@@ -54,7 +55,7 @@ const SkillsBox = () => {
     },
     {
       icon: <ReactIcon />,
-      name: 'react Native',
+      name: 'React Native',
       borderColor: ' hover:border-sky-500 dark:hover:border-sky-500 ',
       textColor: 'hover:text-sky-500 dark:hover:text-sky-500 hover:text-sky-500 text-opacity-90 '
     },
@@ -77,22 +78,22 @@ const SkillsBox = () => {
       textColor: 'hover:text-blue-500 dark:hover:text-blue-500 hover:text-blue-500 text-opacity-90 '
     },
     {
-      icon: <CssIcon />,
-      name: 'CSS3',
-      borderColor: ' hover:border-pink-500 dark:hover:border-pink-500 ',
-      textColor: 'hover:text-pink-500 dark:hover:text-pink-500 hover:text-pink-500 text-opacity-90 '
-    },
-    {
-      icon: <HtmlIcon />,
-      name: 'HTML5',
-      borderColor: ' hover:border-red-500 dark:hover:border-red-500 ',
-      textColor: 'hover:text-red-500 dark:hover:text-red-500 hover:text-red-500 text-opacity-90 '
-    },
-    {
       icon: <TailwindIcon />,
       name: 'Tailwind CSS',
       borderColor: ' hover:border-cyan-500 dark:hover:border-cyan-500 ',
       textColor: 'hover:text-cyan-700 dark:hover:text-cyan-700 hover:text-cyan-700 text-opacity-90 '
+    },
+    {
+      icon: <CodeIcon className='text-orange-500' strokeWidth={1.5} />,
+      name: 'Claude Code',
+      borderColor: ' hover:border-orange-500 dark:hover:border-orange-500 ',
+      textColor: 'hover:text-orange-500 dark:hover:text-orange-500 text-opacity-90 '
+    },
+    {
+      icon: <CodeIcon className='text-violet-500' strokeWidth={1.5} />,
+      name: 'Vibe Coding',
+      borderColor: ' hover:border-violet-500 dark:hover:border-violet-500 ',
+      textColor: 'hover:text-violet-500 dark:hover:text-violet-500 text-opacity-90 '
     }
   ]
 

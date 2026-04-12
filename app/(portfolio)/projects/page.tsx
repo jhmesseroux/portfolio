@@ -1,13 +1,14 @@
 import CallToAction from '@/components/portfolio/CallToAction'
 import { fetchAPI } from '@/helpers/api'
+import { buildMeta } from '@/helpers/seo'
 import { ProjectResponse } from '@/interfaces'
-import { Metadata } from 'next'
 import ProjectsFilter from './ProjectsFilter'
 
-export const metadata: Metadata = {
-  title: 'Projects | Portfolio | Jean Hilaire Messeroux',
-  description: 'Here are some of my projects that I have worked on.'
-}
+export const metadata = buildMeta({
+  title: 'Projects | Jean H. Messeroux',
+  description: 'A showcase of full-stack projects built with React, Next.js, Node.js, and TypeScript — from SaaS platforms to mobile apps.',
+  path: '/projects'
+})
 
 const MyProjects = async () => {
   const projects = await fetchAPI<ProjectResponse>('/projects')

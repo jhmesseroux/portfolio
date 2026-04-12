@@ -1,54 +1,38 @@
 'use client'
-import { SquareLoading } from '@/components'
-import React, { createContext, useLayoutEffect, useState } from 'react'
+import React, { createContext, useEffect, useState } from 'react'
 interface Props extends React.HTMLAttributes<HTMLDivElement> {}
 
 export interface ThemeContextProps {
-  theme: 'dark' | 'light' | null
+  theme: 'dark' | 'light'
   // eslint-disable-next-line no-unused-vars
   toggleTheme: (theme: 'dark' | 'light') => void
 }
 export const ThemeContext = createContext({} as ThemeContextProps)
 
 const ThemeProvider = ({ children }: Props) => {
-  const [theme, setTheme] = useState<'dark' | 'light' | null>(null)
+  const [theme, setTheme] = useState<'dark' | 'light'>('light')
 
-  useLayoutEffect(() => {
-    if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      document.documentElement.classList.add('dark')
-      document.documentElement.classList.remove('light')
-      setTheme('dark')
-    } else {
-      document.documentElement.classList.remove('dark')
-      document.documentElement.classList.add('light')
-      setTheme('light')
+  useEffect(() => {
+    try {
+      const stored = localStorage.theme
+      const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches
+      const next: 'dark' | 'light' = stored === 'dark' || (!stored && prefersDark) ? 'dark' : 'light'
+      document.documentElement.classList.toggle('dark', next === 'dark')
+      document.documentElement.classList.toggle('light', next === 'light')
+      setTheme(next)
+    } catch {
+      // localStorage may be blocked
     }
   }, [])
 
-  const toggleTheme = (theme: 'dark' | 'light') => {
-    setTheme(theme)
-    if (theme === 'dark') {
-      localStorage.theme = 'dark'
-      document.documentElement.classList.add('dark')
-      document.documentElement.classList.remove('light')
-    } else {
-      localStorage.theme = 'light'
-      document.documentElement.classList.remove('dark')
-      document.documentElement.classList.add('light')
-    }
+  const toggleTheme = (next: 'dark' | 'light') => {
+    setTheme(next)
+    try {
+      localStorage.theme = next
+    } catch {}
+    document.documentElement.classList.toggle('dark', next === 'dark')
+    document.documentElement.classList.toggle('light', next === 'light')
   }
-
-  if (!theme)
-    return (
-      <section className='fixed inset-0 flex items-center justify-center bg-white dark:bg-slate-950'>
-        <div className='p-6 flex items-center text-center flex-col gap-4'>
-          <SquareLoading />
-          <div className='p-6 text-slate-600 dark:text-slate-400'>
-            Software engineer | Senior Full stack developer | JavaScript/Typescript | Vibe coder | IA Expert
-          </div>
-        </div>
-      </section>
-    )
 
   return <ThemeContext.Provider value={{ theme, toggleTheme }}>{children}</ThemeContext.Provider>
 }

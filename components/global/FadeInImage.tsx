@@ -26,8 +26,7 @@ const FadeInImage = ({ className, path, skeletonClassName, imageAndBoxClassName 
         src={path}
         onLoad={() => setIsImageLoaded(true)}
         alt={alt ?? 'Image'}
-        style={{ width: '100%', height: '100%' }}
-        objectFit='cover'
+        style={{ width: '100%', height: '100%', objectFit: 'cover' }}
         width={1000}
         height={563}
         className={cn('aspect-video  bg-slate-200 object-cover', imageAndBoxClassName, imageClassName)}
