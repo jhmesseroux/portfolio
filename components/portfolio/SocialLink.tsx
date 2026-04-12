@@ -11,17 +11,14 @@ const SocialLink = ({ Icon, className, to, ...rest }: Props) => {
     <a
       href={to}
       target='_blank'
-      //   title='Youtube'
+      rel='noreferrer'
       {...rest}
       className={cn(
-        'link-media group w-8 h-8 hover:w-fit border  flex items-center justify-center rounded-full p-1   hover:text-white duration-500 transition-colors opacity-80 hover:opacity-100 cursor-pointer=',
+        'link-media group w-8 h-8 border flex items-center justify-center rounded-full p-1 hover:text-white duration-500 transition-all opacity-80 hover:opacity-100 hover:scale-110 cursor-pointer',
         className
       )}
     >
-      {<Icon />}
-      {/* <span className='group-hover:flex translate-y-5 group-hover:translate-y-0 hidden '>
-      Github
-    </span> */}
+      <Icon />
     </a>
   )
 }

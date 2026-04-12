@@ -8,17 +8,15 @@ const DownloadPage = () => {
   const router = useRouter()
 
   useEffect(() => {
-    // @ts-ignore - userAgent is not defined in the navigator type
-    const userAgent = navigator.userAgent || navigator.vendor || window.opera
+    const userAgent = navigator.userAgent || ''
 
-    // Redirect to Apple App Store for iOS
-    // @ts-ignore - userAgent is not defined in the navigator type
-    if (/iPad|iPhone|iPod/.test(userAgent) && !window.MSStream) {
-      router.replace(process.env.NEXT_PUBLIC_DOOKE_IOS_APP_URL!)
-    }
-    // Redirect to Google Play Store for Android
-    else if (/android/i.test(userAgent)) {
-      router.replace(process.env.NEXT_PUBLIC_DOOKE_ANDROID_APP_URL!)
+    const iosUrl = process.env.NEXT_PUBLIC_DOOKE_IOS_APP_URL
+    const androidUrl = process.env.NEXT_PUBLIC_DOOKE_ANDROID_APP_URL
+
+    if (/iPad|iPhone|iPod/.test(userAgent) && iosUrl) {
+      router.replace(iosUrl)
+    } else if (/android/i.test(userAgent) && androidUrl) {
+      router.replace(androidUrl)
     }
   }, [router])
 

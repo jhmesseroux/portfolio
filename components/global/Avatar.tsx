@@ -1,4 +1,4 @@
-import { cn } from '@/lib/utils'
+import { cn } from '@/helpers'
 import Image from 'next/image'
 import React from 'react'
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
@@ -9,7 +9,7 @@ interface Props extends React.HTMLAttributes<HTMLDivElement> {
 }
 
 const Avatar = ({ path, width = 40, height = 40, text, className }: Props) => {
-  if (!!path)
+  if (path)
     return (
       <Image
         src={path}
@@ -28,7 +28,7 @@ const Avatar = ({ path, width = 40, height = 40, text, className }: Props) => {
         className
       )}
     >
-      <span>{text?.charAt(0).toUpperCase() + (text?.split(' ').length > 1 ? text.split(' ')[1][0] : '')}</span>
+      <span>{(text?.charAt(0)?.toUpperCase() ?? '') + (text?.split(' ')?.[1]?.[0] ?? '')}</span>
     </div>
   )
 }

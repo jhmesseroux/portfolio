@@ -74,7 +74,7 @@ const MentorShip = () => {
   ]
 
   return (
-    <div id='mentorship ' className='max-w-5xl mx-auto my-12 p-4 md:p-6'>
+    <div id='mentorship' className='max-w-5xl mx-auto my-6 p-3 md:p-6'>
       <div className=''>
         <div className='my-6 flex gap-x-4 flex-col'>
           <span className=' uppercase font-medium mb-2'>
@@ -82,19 +82,16 @@ const MentorShip = () => {
           </span>
         </div>
         <div className='text-gray-700'>
-          <h3
-            className='my-4  text-lg'
-            dangerouslySetInnerHTML={{
-              __html: `I help developers grow their skills and bring their ideas to life! Whether you need mentorship in JavaScript, TypeScript, React, Next.js, Python, or Node.js, or you're looking to build a SaaS platform, website, or mobile app, I’ve got you covered. Let’s make your vision a reality!`
-            }}
-          />
+          <h3 className='my-4 text-lg'>
+            {"I help developers grow their skills and bring their ideas to life! Whether you need mentorship in JavaScript, TypeScript, React, Next.js, Python, or Node.js, or you're looking to build a SaaS platform, website, or mobile app, I've got you covered. Let's make your vision a reality!"}
+          </h3>
         </div>
       </div>
 
       <div className='grid grid-cols-1 md:grid-cols-2 gap-8 mt-12'>
-        {services.map((item, index) => (
+        {services.map((item) => (
           <div
-            key={index}
+            key={item.id}
             className='w-full bg-white hover:scale-105 shadow-2 hover:shadow-1 rounded-lg pb-4 overflow-hidden cursor-pointer duration-300 transition-all'
           >
             <div
@@ -132,8 +129,8 @@ const MentorShip = () => {
             </div>
             <div className='p-4 mt-8'>
               <ul className='flex flex-col gap-y-2'>
-                {item.benefits.map((i, index) => (
-                  <li key={index} className='flex gap-x-2'>
+                {item.benefits.map((i) => (
+                  <li key={i.id} className='flex gap-x-2'>
                     <CheckIcon
                       className={cn('', {
                         'text-violet-500': item.id === 1,

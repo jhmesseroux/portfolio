@@ -1,6 +1,5 @@
 'use client'
 import { SquareLoading } from '@/components'
-import { cn } from '@/helpers'
 import React, { createContext, useLayoutEffect, useState } from 'react'
 interface Props extends React.HTMLAttributes<HTMLDivElement> {}
 
@@ -12,7 +11,7 @@ export interface ThemeContextProps {
 export const ThemeContext = createContext({} as ThemeContextProps)
 
 const ThemeProvider = ({ children }: Props) => {
-  const [theme, setTheme] = useState<'dark' | 'light' | null>('light')
+  const [theme, setTheme] = useState<'dark' | 'light' | null>(null)
 
   useLayoutEffect(() => {
     if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
@@ -24,7 +23,6 @@ const ThemeProvider = ({ children }: Props) => {
       document.documentElement.classList.add('light')
       setTheme('light')
     }
-    return () => {}
   }, [])
 
   const toggleTheme = (theme: 'dark' | 'light') => {
@@ -42,14 +40,11 @@ const ThemeProvider = ({ children }: Props) => {
 
   if (!theme)
     return (
-      <section className=' h-screen  w-screen grid place-items-center'>
-        <div
-          style={{ maxWidth: 500, maxHeight: 400 }}
-          className={cn('p-6 shadow-sm rounded-md flex items-center text-center flex-col gap-4 justify-center')}
-        >
+      <section className='fixed inset-0 flex items-center justify-center bg-white dark:bg-slate-950'>
+        <div className='p-6 flex items-center text-center flex-col gap-4'>
           <SquareLoading />
-          <div className='p-6' style={{ backgroundColor: theme === 'dark' ? '#1a202c' : 'white' }}>
-            Software Engineer | Fullstack developer | Typescript, Nodejs | React.js,Next.js | React Native | Chrome Extension
+          <div className='p-6 text-slate-600 dark:text-slate-400'>
+            Software engineer | Senior Full stack developer | JavaScript/Typescript | Vibe coder | IA Expert
           </div>
         </div>
       </section>

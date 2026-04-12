@@ -1,8 +1,8 @@
 import { cn } from '@/helpers'
 import React from 'react'
-interface Props extends React.HTMLAttributes<SVGElement> {}
+interface Props extends React.SVGAttributes<SVGElement> {}
 
-const CodeIcon = ({ className, ...rest }: Props) => {
+const CodeIcon = ({ className, strokeWidth = 2, ...rest }: Props) => {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
@@ -11,7 +11,7 @@ const CodeIcon = ({ className, ...rest }: Props) => {
       viewBox='0 0 24 24'
       fill='none'
       stroke='currentColor'
-      strokeWidth={2}
+      strokeWidth={strokeWidth}
       strokeLinecap='round'
       strokeLinejoin='round'
       className={cn('icon icon-tabler icons-tabler-outline icon-tabler-code', className)}

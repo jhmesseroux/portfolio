@@ -74,6 +74,7 @@ export interface ISkill {
 export interface EducationResponse {
   ok: boolean
   code: number
+  message: string
   status: string
   results: number
   data: IEducation[]
@@ -93,8 +94,8 @@ export interface IEducation {
   organization: Organization | null
   credentialUrl: null | string
   type: string
-  createdAt: Date
-  updatedAt: Date
+  createdAt: string
+  updatedAt: string
 }
 
 export interface Organization {
@@ -105,6 +106,7 @@ export interface Organization {
 export interface ReviewResponse {
   ok: boolean
   code: number
+  message: string
   status: string
   results: number
   data: IReview[]
@@ -114,17 +116,17 @@ export interface IReview {
   id: number
   review: string
   author: Author
-  createdAt: Date
-  updatedAt: Date
+  createdAt: string
+  updatedAt: string
 }
 
 export interface Author {
   name: string
-  image: string
-  website: string
-  linkedIn: string
-  instagram: string
-  facebook: string
+  image: string | null
+  website: string | null
+  linkedIn: string | null
+  instagram: string | null
+  facebook: string | null
   position: string
 }
 

@@ -1,12 +1,13 @@
 import React from 'react'
-import { YoutubeIcon, GithubIcon, LinkedInIcon, InstagramIcon, TelegramIcon } from '..'
+import { YoutubeIcon, GithubIcon, LinkedInIcon, InstagramIcon, TelegramIcon, EmailIcon } from '..'
+import WhatsappIcon from '../icons/WhatsappIcon'
 import SocialLink from './SocialLink'
 
 const Medias = () => {
   return (
-    <div className='red-socials  flex flex-col items-center'>
-      <h3 className='text-brand2 dark:text-slate-500 text-lg sm:text-2xl font-semibold mb-3'>Medias</h3>
-      <div className='links-medias flex items-center gap-4 flex-wrap'>
+    <div className='flex flex-col items-center' data-testid='footer-socials'>
+      <h3 className='text-brand2 dark:text-slate-500 text-lg sm:text-2xl font-semibold mb-3'>{"Let's Connect"}</h3>
+      <div className='flex items-center justify-center gap-4 flex-wrap'>
         <SocialLink
           Icon={YoutubeIcon}
           className='border-red-500 text-red-500 hover:bg-red-600'
@@ -36,6 +37,18 @@ const Medias = () => {
           className='border-sky-500 text-sky-500 hover:bg-sky-600'
           title='Telegram'
           to='https://t.me/jhmesseroux'
+        />
+        <SocialLink
+          Icon={WhatsappIcon}
+          className='border-green-500 text-green-500 hover:bg-green-600'
+          title='WhatsApp'
+          to='https://wa.me/+15147027882'
+        />
+        <SocialLink
+          Icon={EmailIcon}
+          className='border-violet-500 text-violet-500 hover:bg-violet-600'
+          title='Email'
+          to='mailto:jhmcode.dev@gmail.com'
         />
       </div>
     </div>

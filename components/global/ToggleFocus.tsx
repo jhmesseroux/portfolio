@@ -1,7 +1,7 @@
 'use client'
 import React, { useState, useRef, useEffect } from 'react'
 import ChevronDownIcon from '../icons/ChevronDownIcon'
-import { cn } from '@/lib/utils'
+import { cn } from '@/helpers'
 
 type Position = 'top' | 'bottom' | 'left' | 'right'
 
@@ -113,7 +113,7 @@ const ToggleFocus = ({
   const getContentStyles = (): React.CSSProperties => {
     const baseStyles: React.CSSProperties = {
       position: 'absolute',
-      zIndex: 50
+      zIndex: 100
     }
 
     switch (position) {

@@ -18,9 +18,88 @@
   --tooltip-theme: #1055bc;
 }
 
+.avatar-ring {
+  position: relative;
+  transition: transform 0.4s ease;
+  isolation: isolate;
+}
+
+.avatar-ring > * {
+  position: relative;
+  z-index: 2;
+}
+
+.avatar-ring::before {
+  content: '';
+  position: absolute;
+  inset: -3px;
+  border-radius: 9999px;
+  background: conic-gradient(from 0deg, var(--brand-color), var(--brand-color-2), #60a5fa, var(--brand-color));
+  animation: avatar-spin 4s linear infinite;
+  z-index: 1;
+}
+
+.avatar-ring::after {
+  content: '';
+  position: absolute;
+  inset: -6px;
+  border-radius: 9999px;
+  background: conic-gradient(from 0deg, var(--brand-color), var(--brand-color-2), #60a5fa, var(--brand-color));
+  animation: avatar-spin 4s linear infinite;
+  filter: blur(12px);
+  opacity: 0.5;
+  z-index: 0;
+}
+
+.avatar-ring:hover {
+  transform: scale(1.05);
+}
+
+.avatar-ring:hover::after {
+  opacity: 0.8;
+  filter: blur(16px);
+}
+
+.avatar-ring-sm::before {
+  inset: -2px;
+}
+
+.avatar-ring-sm::after {
+  inset: -2px;
+  filter: blur(3px);
+  opacity: 0.3;
+}
+
+.avatar-ring-sm:hover::after {
+  opacity: 0.5;
+  filter: blur(5px);
+}
+
+.avatar-ring-muted::before {
+  background: conic-gradient(from 0deg, #cbd5e1, #b0bec5, #cbd5e1);
+}
+
+.avatar-ring-muted::after {
+  background: conic-gradient(from 0deg, #cbd5e1, #b0bec5, #cbd5e1);
+  opacity: 0.2;
+}
+
+.avatar-ring-muted:hover::after {
+  opacity: 0.5;
+}
+
+@keyframes avatar-spin {
+  to { transform: rotate(360deg); }
+}
+
+@keyframes progress-fill {
+  from { transform: scaleX(0); }
+  to { transform: scaleX(1); }
+}
+
 .dark {
-  --shadow-1: 0 6px 10px rgba(0, 0, 0, 0.41);
-  --shadow-2: 0px 0px 10px #0602024d;
+  --shadow-1: 0 4px 12px rgba(0, 0, 0, 0.3);
+  --shadow-2: 0px 0px 8px rgba(0, 0, 0, 0.2);
   --primary-color: 0 90% 62%;
   --tooltip-theme: #161f30;
 }
@@ -149,22 +228,15 @@ html.dark ::-webkit-scrollbar-thumb:hover {
   }
 }
 
-.mobile-sidebar.active {
-  display: block;
-}
-
-.mobile-sidebar {
-  display: none;
-}
-
-.modile-sidebar-container {
-  animation: animate-mobile-sidebar linear both;
-  opacity: 0.6;
-  transform: translateX(-100%);
-  animation-duration: 400ms;
+.mobile-sidebar-container {
+  animation: animate-mobile-sidebar 400ms linear both;
 }
 
 @keyframes animate-mobile-sidebar {
+  from {
+    opacity: 0.6;
+    transform: translateX(-100%);
+  }
   to {
     opacity: 1;
     transform: translateX(0);
@@ -335,9 +407,6 @@ html.dark .bg-gradient {
   background: linear-gradient(rgb(37, 99, 235), #8b55f5) padding-box, linear-gradient(#fff, #fff) border-box;
 }
 
-.shadow-1 {
-  box-shadow: 0px 6px 34px rgba(215, 216, 222, 0.41);
-}
 
 .text-gradient {
   background: linear-gradient(rgb(1, 79, 195), rgb(248, 48, 225));

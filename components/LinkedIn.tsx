@@ -15,6 +15,7 @@ const LinkedIn = ({ externalLink = true, icon = true, text = true, className }: 
     <a
       href='https://www.linkedin.com/in/jhmesseroux/'
       target='_blank'
+      rel='noreferrer'
       className={cn(
         'hover:bg-blue-600 py-2 px-3.5 flex items-center text-blue-600  gap-1 rounded-[4px] hover:shadow border-blue-500  border  dark:bg-transparent dark:border-sky-300 dark:border-[1px] dark:hover:bg-blue-500 hover:text-white dark:hover:border-brand duration-500 transition-colors group',
         className

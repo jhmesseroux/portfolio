@@ -27,7 +27,8 @@ import TypeScriptIcon from './icons/coding/TypeScriptIcon'
 import JavascriptIcon from './icons/coding/JavascriptIcon'
 import EducationIcon from './icons/EducationIcon'
 import CertificationIcon from './icons/CertificationIcon'
-import LinkedInIcon from './icons/socials/LinkedinIcon' // Corrected the casing of the file name
+import LinkedInIcon from './icons/socials/LinkedinIcon'
+import EmailIcon from './icons/EmailIcon'
 
 export {
   SunIcon,
@@ -59,5 +60,6 @@ export {
   JavascriptIcon,
   HtmlIcon,
   EducationIcon,
-  CertificationIcon
+  CertificationIcon,
+  EmailIcon
 }

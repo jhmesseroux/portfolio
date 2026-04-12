@@ -117,7 +117,7 @@ const formEntries = {
     selectDOptLinkType: 'Select an option...',
     options: jobPositionsEnglish,
     whyThisLink: 'This will be used to verify your identity. Make sure it is a valid link and publicly accessible.',
-    avatar: 'Avatar/photo URL '
+    avatar: 'Avatar/photo URL'
   },
   es: {
     review: 'Descripción',
@@ -140,7 +140,7 @@ const formEntries = {
 type localeType = 'en' | 'es'
 
 const AddReview = () => {
-  const [errors, setErrors] = useState<any | undefined | any>({})
+  const [errors, setErrors] = useState<Record<string, string>>({})
   const [error, setError] = useState<string | undefined>('')
   const [success, setSuccess] = useState('')
   const [loading, setLoading] = useState(false)
@@ -177,7 +177,10 @@ const AddReview = () => {
       const data = await res.json()
       if (data.ok) {
         form.reset()
+        setReviewText('')
         setSuccess('Review submitted successfully. Thank you!')
+      } else {
+        setError(data.message || 'Something went wrong! Please try again later.')
       }
     } catch (error) {
       setError('Something went wrong! Please try again later.')
@@ -215,7 +218,7 @@ const AddReview = () => {
           <div className='flex flex-col sm:flex-row  md:gap-4'>
             <fieldset className='w-full flex flex-col '>
               <label
-                htmlFor='linkType'
+                htmlFor='position'
                 className='font-medium flex items-center justify-between first-letter:capitalize text-slate-700 dark:text-slate-500   p-1 '
               >
                 <span>
@@ -231,8 +234,8 @@ const AddReview = () => {
                 <option value='' defaultChecked>
                   {formEntries[locale].selectDOptPosition}
                 </option>
-                {formEntries[locale].options.sort().map((option, i) => (
-                  <option key={i} value={option}>
+                {formEntries[locale].options.sort().map((option) => (
+                  <option key={option} value={option}>
                     {option}
                   </option>
                 ))}

@@ -12,15 +12,16 @@ const ThemeSwitcher = ({ className, ...rest }: Props) => {
   return (
     <div
       {...rest}
-      className={cn(
-        'flex items-center gap-2 rounded-full mx-1 hover:text-sky-300',
-        className
-      )}
+      className={cn('flex items-center gap-2 rounded-full mx-1', className)}
     >
       {theme === 'dark' ? (
-        <MoonIcon className='' onClick={() => toggleTheme('light')} />
+        <button type='button' aria-label='Switch to light mode' data-testid='theme-switch-light' onClick={() => toggleTheme('light')} className='hover:text-sky-300'>
+          <MoonIcon />
+        </button>
       ) : (
-        <SunIcon className='' onClick={() => toggleTheme('dark')} />
+        <button type='button' aria-label='Switch to dark mode' data-testid='theme-switch-dark' onClick={() => toggleTheme('dark')} className='hover:text-sky-300'>
+          <SunIcon />
+        </button>
       )}
     </div>
   )

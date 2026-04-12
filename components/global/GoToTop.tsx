@@ -23,7 +23,7 @@ const GoToTop = () => {
     <button
       style={{ backgroundColor: 'rgb(37 99 235 / 62%)', zIndex: 9999 }}
       type='button'
-      className='w-12 h-12 rounded-full shadow fixed bottom-6 flex items-center justify-center right-4 text-white text-center duration-700 transition-colors shadow-brand hover:text-white cursor-pointer hover:bg-gradient-to-r from-brand to-pink-400 hover:border-none group'
+      className='w-12 h-12 rounded-full shadow fixed bottom-6 hidden sm:flex items-center justify-center right-4 text-white text-center duration-700 transition-colors shadow-brand hover:text-white cursor-pointer hover:bg-gradient-to-r from-brand to-pink-400 hover:border-none group'
       onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
     >
       {/* Progress Circle */}

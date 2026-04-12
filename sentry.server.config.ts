@@ -8,7 +8,7 @@ Sentry.init({
   dsn: "https://024fafeea85fb0c20c79fb28a1a2167b@o4508597774712832.ingest.us.sentry.io/4508597783560192",
 
   // Define how likely traces are sampled. Adjust this value in production, or use tracesSampler for greater control.
-  tracesSampleRate: 1,
+  tracesSampleRate: 0.2,
 
   // Setting this option to true will print useful information to the console while you're setting up Sentry.
   debug: false,
