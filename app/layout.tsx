@@ -1,10 +1,6 @@
 import './globals.css'
-import SmallHeader from '@/components/portfolio/SmallHeader'
-import Footer from '@/components/portfolio/Footer'
-import MobileSideBar from '@/components/portfolio/MobileSideBar'
 import ThemeContext from '@/context/ThemeContext'
 import SidebarProvider from '@/context/SidebarContext'
-import MenuTabs from '@/components/portfolio/MenuTabs'
 import GoToTop from '@/components/global/GoToTop'
 import { buildMeta, SITE_URL } from '@/helpers/seo'
 
@@ -53,11 +49,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className='bg-white max-w-6xl relative m-auto min-h-screen flex flex-col justify-between dark:bg-slate-950 text-slate-700 dark:text-slate-400'>
         <ThemeContext>
           <SidebarProvider>
-            <SmallHeader />
             {children}
-            <Footer />
-            <MenuTabs />
-            <MobileSideBar />
             <GoToTop />
           </SidebarProvider>
         </ThemeContext>

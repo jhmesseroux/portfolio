@@ -2,7 +2,7 @@ import React from 'react'
 import { DownloadIcon } from '..'
 import Link from 'next/link'
 import LinkedIn from '../LinkedIn'
-import DownloadApp from '@/app/dooke/download/DownloadApp'
+import DownloadApp from '@/app/(main)/dooke/download/DownloadApp'
 import ToggleFocus from '../global/ToggleFocus'
 import HeroAvatar from './HeroAvatar'
 
