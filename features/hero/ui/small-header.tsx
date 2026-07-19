@@ -39,8 +39,7 @@ export const SmallHeader = ({ className }: Props) => {
       role='banner'
       data-testid='small-header'
       className={cn(
-        'bg-white/90 z-40 dark:bg-slate-800/90 px-6 py-3 flex items-center justify-between sticky top-0 transition-shadow duration-300',
-        showAvatar ? 'shadow-2 hover:shadow-1' : 'shadow-none',
+        'bg-white/90 z-40 dark:bg-slate-800/90 px-6 py-3 flex items-center justify-between sticky top-0',
         className
       )}
     >

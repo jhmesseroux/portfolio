@@ -6,8 +6,6 @@ const nextConfig = {
     remotePatterns: [
       { protocol: 'https', hostname: 'res.cloudinary.com', pathname: '/**' },
       { protocol: 'https', hostname: '**.r2.dev', pathname: '/**' },
-      { protocol: 'https', hostname: 'cdn.worldvectorlogo.com', pathname: '/**' },
-      { protocol: 'https', hostname: 'upload.wikimedia.org', pathname: '/**' },
     ],
   },
 }

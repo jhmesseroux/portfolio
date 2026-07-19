@@ -5,9 +5,9 @@ import Link from 'next/link'
 import Image from 'next/image'
 
 const orgLogos: Record<string, string> = {
-  Anthropic: 'https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Anthropic_logo.svg/200px-Anthropic_logo.svg.png',
-  Slack: 'https://cdn.worldvectorlogo.com/logos/slack-new-logo.svg',
-  Udemy: 'https://cdn.worldvectorlogo.com/logos/udemy-1.svg'
+  Anthropic: '/assets/logos/anthropic.svg',
+  Slack: '/assets/logos/slack.svg',
+  Udemy: '/assets/logos/udemy.svg'
 }
 
 export const CertificationsAndLicenses = ({ data }: { data: IEducation[] }) => {
@@ -75,6 +75,7 @@ export const CertificationsAndLicenses = ({ data }: { data: IEducation[] }) => {
                     alt={cert.organization.name}
                     width={48}
                     height={48}
+                    unoptimized
                     className='w-full h-full object-contain opacity-80'
                   />
                 </div>
