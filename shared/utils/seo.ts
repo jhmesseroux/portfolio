@@ -4,7 +4,7 @@ export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.jhme.de
 const SITE_NAME = 'Jean H. Messeroux Portfolio'
 const AUTHOR = 'Jean Hilaire Messeroux'
 const TWITTER_HANDLE = '@jhmesseroux'
-const OG_IMAGE = '/assets/images/me.png'
+const OG_IMAGE = '/assets/images/me.webp'
 
 interface BuildMetaArgs {
   title: string
@@ -26,7 +26,7 @@ export const buildMeta = ({ title, description, path = '/', isRoot = false }: Bu
       title,
       description,
       siteName: SITE_NAME,
-      images: [{ url: OG_IMAGE, width: 800, height: 800, alt: AUTHOR }]
+      images: [{ url: OG_IMAGE, width: 1246, height: 1080, alt: AUTHOR }]
     },
     twitter: {
       card: 'summary_large_image',

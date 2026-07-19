@@ -109,6 +109,13 @@ body {
   scroll-behavior: smooth;
 }
 
+/* the sticky header bleeds to 100vw (see small-header.tsx); clip the
+   scrollbar-width overhang without creating a scroll container that
+   would break position: sticky */
+body {
+  overflow-x: clip;
+}
+
 /* width */
 ::-webkit-scrollbar {
   width: 5px;

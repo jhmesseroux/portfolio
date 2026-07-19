@@ -65,7 +65,7 @@ const customLogos: Record<string, string> = {
 }
 
 const getCompanyLogo = (companyLink: string | null | undefined) => {
-  if (!companyLink) return '/assets/images/me.png'
+  if (!companyLink) return '/assets/images/me.webp'
   try {
     const url = new URL(companyLink)
     const host = url.hostname.replace(/^www\./, '')
@@ -79,7 +79,7 @@ const getCompanyLogo = (companyLink: string | null | undefined) => {
     if (customLogos[url.hostname]) return customLogos[url.hostname]
     return `https://www.google.com/s2/favicons?domain=${url.hostname}&sz=128`
   } catch {
-    return '/assets/images/me.png'
+    return '/assets/images/me.webp'
   }
 }
 

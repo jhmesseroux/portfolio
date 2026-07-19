@@ -33,7 +33,7 @@ export const HeroAvatar = () => {
         <Link href='/' data-testid='hero-avatar-link' className='block'>
           <div className='avatar-ring rounded-full'>
             <FadeInImage
-              path='/assets/images/me.png'
+              path='/assets/images/me.webp'
               imageAndBoxClassName='aspect-square rounded-full w-[140px] h-[140px] sm:w-[160px] sm:h-[160px]'
               imageClassName='rounded-full'
               alt='Jean Hilaire Messeroux'

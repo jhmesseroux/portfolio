@@ -55,7 +55,7 @@ export const MobileSideBar = () => {
           <div className='avatar flex items-center gap-2 border-b border-slate-300 dark:border-slate-700 p-3'>
             <div className='avatar-ring avatar-ring-sm rounded-full shrink-0'>
               <Image
-                src={'/assets/images/me.png'}
+                src={'/assets/images/me.webp'}
                 className='rounded-full overflow-hidden w-[50px] h-[50px] object-cover'
                 alt='Avatar Jn. H. Messeroux'
                 width={50}

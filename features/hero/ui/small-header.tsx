@@ -39,10 +39,13 @@ export const SmallHeader = ({ className }: Props) => {
       role='banner'
       data-testid='small-header'
       className={cn(
-        'bg-white/90 z-40 dark:bg-slate-800/90 px-6 py-3 flex items-center justify-between sticky top-0',
+        // full-bleed background: escape the max-w-6xl body container so the
+        // translucent bar spans the whole viewport; content stays contained below
+        'bg-white/90 z-40 dark:bg-slate-950/90 sticky top-0 mx-[calc(50%-50vw)]',
         className
       )}
     >
+      <div className='max-w-6xl mx-auto w-full px-6 py-3 flex items-center justify-between'>
       <LazyMotion features={domMax} strict>
       <LayoutGroup>
         <m.div layout className='flex items-center gap-2' data-testid='small-header-avatar'>
@@ -61,7 +64,7 @@ export const SmallHeader = ({ className }: Props) => {
                 <Link href='/' data-testid='small-header-home-link' className='block'>
                   <div className='avatar-ring avatar-ring-sm rounded-full'>
                     <FadeInImage
-                      path='/assets/images/me.png'
+                      path='/assets/images/me.webp'
                       imageAndBoxClassName='aspect-square rounded-full w-[50px] h-[50px]'
                       imageClassName='rounded-full'
                       alt='Avatar Jn. H. Messeroux'
@@ -97,6 +100,7 @@ export const SmallHeader = ({ className }: Props) => {
       <div className='flex items-center justify-center gap-x-2'>
         <ThemeSwitcher />
         <OpenModalButton />
+      </div>
       </div>
     </header>
   )

@@ -17,15 +17,21 @@ export const ExperienceCard = ({ item }: { item: IExperience }) => {
   const liCount = liMatches ? liMatches.length : 0
   const needsCollapse = liCount > VISIBLE_ITEMS
 
-  const collapsedHtml = needsCollapse
-    ? item.description.replace(/<li[\s\S]*$/i, (match) => {
-        let count = 0
-        return match.replace(/<li[\s>][\s\S]*?<\/li>/gi, (li) => {
-          count++
-          return count <= VISIBLE_ITEMS ? li : ''
-        })
+  // Split the description into an always-visible part (first VISIBLE_ITEMS
+  // list items) and a hidden part (the rest), so the hidden part can be
+  // expanded/collapsed with a smooth grid-rows animation.
+  const keepItems = (keep: 'head' | 'tail') =>
+    item.description.replace(/<li[\s\S]*$/i, (match) => {
+      let count = 0
+      return match.replace(/<li[\s>][\s\S]*?<\/li>/gi, (li) => {
+        count++
+        const isHead = count <= VISIBLE_ITEMS
+        return (keep === 'head' ? isHead : !isHead) ? li : ''
       })
-    : item.description
+    })
+
+  const visibleHtml = needsCollapse ? keepItems('head') : item.description
+  const hiddenHtml = needsCollapse ? keepItems('tail') : ''
 
   return (
     <div
@@ -75,12 +81,28 @@ export const ExperienceCard = ({ item }: { item: IExperience }) => {
 
       {/* Description */}
       <div className='relative'>
-        <div
-          className='text-sm text-slate-600 dark:text-slate-400 mt-3 leading-relaxed [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:space-y-1 [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:space-y-1 [&_li]:list-inside'
-          dangerouslySetInnerHTML={{ __html: sanitize(expanded ? item.description : collapsedHtml) }}
-        />
-        {needsCollapse && !expanded && (
-          <div className='absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-t from-white dark:from-slate-900 to-transparent pointer-events-none' />
+        <div className='text-sm text-slate-600 dark:text-slate-400 mt-3 leading-relaxed [&_ul]:list-disc [&_ul]:pl-5 [&_ul]:space-y-1 [&_ol]:list-decimal [&_ol]:pl-5 [&_ol]:space-y-1 [&_li]:list-inside'>
+          <div dangerouslySetInnerHTML={{ __html: sanitize(visibleHtml) }} />
+          {needsCollapse && (
+            <div
+              className={cn(
+                'grid transition-[grid-template-rows] duration-500 ease-in-out',
+                expanded ? 'grid-rows-[1fr]' : 'grid-rows-[0fr]'
+              )}
+            >
+              <div className='overflow-hidden'>
+                <div className='pt-1' dangerouslySetInnerHTML={{ __html: sanitize(hiddenHtml) }} />
+              </div>
+            </div>
+          )}
+        </div>
+        {needsCollapse && (
+          <div
+            className={cn(
+              'absolute bottom-0 left-0 right-0 h-10 bg-gradient-to-t from-white dark:from-slate-900 to-transparent pointer-events-none transition-opacity duration-500',
+              expanded ? 'opacity-0' : 'opacity-100'
+            )}
+          />
         )}
       </div>
 

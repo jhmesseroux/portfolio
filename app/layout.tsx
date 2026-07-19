@@ -17,7 +17,7 @@ const personJsonLd = {
   '@type': 'Person',
   name: 'Jean Hilaire Messeroux',
   url: SITE_URL,
-  image: `${SITE_URL}/assets/images/me.png`,
+  image: `${SITE_URL}/assets/images/me.webp`,
   jobTitle: 'Senior Full Stack Developer',
   worksFor: { '@type': 'Organization', name: 'EMCI TV', url: 'https://emcitv.com' },
   email: 'mailto:jhmcode.dev@gmail.com',
