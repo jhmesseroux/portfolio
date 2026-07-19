@@ -1,9 +1,9 @@
-import { fetchAPI } from '@/helpers/api'
-import { buildMeta } from '@/helpers/seo'
-import { SkillResponse } from '@/interfaces'
-import SkillsBox from './SkillsBox'
-import SkillsList from './SkillsList'
-import CallToAction from '@/components/portfolio/CallToAction'
+import { fetchAPI } from '@/shared/api'
+import { buildMeta } from '@/shared/utils/seo'
+import { SkillsBox } from '@/features/skills/ui/skills-box'
+import { SkillsList } from '@/features/skills/ui/skills-list'
+import type { SkillResponse } from '@/features/skills'
+import { CallToAction } from '@/features/hero/ui/call-to-action'
 
 export const metadata = buildMeta({
   title: 'Skills & Expertise | Jean H. Messeroux',

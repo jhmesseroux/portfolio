@@ -1,8 +1,8 @@
 'use client'
 import { useRouter } from 'next/navigation'
 import { useEffect } from 'react'
-import DownloadApp from './DownloadApp'
-import { BorderBeam } from '@/components/magicui/border-beam'
+import { DownloadApp } from '@/features/dooke/ui/download-app'
+import { BorderBeam } from '@/shared/ui/border-beam'
 
 const DownloadPage = () => {
   const router = useRouter()

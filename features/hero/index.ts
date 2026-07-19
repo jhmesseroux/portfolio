@@ -1,0 +1,6 @@
+export { Header } from './ui/header'
+export { SmallHeader } from './ui/small-header'
+export { HeroAvatar } from './ui/hero-avatar'
+export { Medias } from './ui/medias'
+export { CallToAction } from './ui/call-to-action'
+export { LinkedIn } from './ui/linkedin-link'

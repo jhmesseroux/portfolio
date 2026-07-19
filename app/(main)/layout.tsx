@@ -1,7 +1,7 @@
-import SmallHeader from '@/components/portfolio/SmallHeader'
-import Footer from '@/components/portfolio/Footer'
-import MobileSideBar from '@/components/portfolio/MobileSideBar'
-import MenuTabs from '@/components/portfolio/MenuTabs'
+import { SmallHeader } from '@/features/hero/ui/small-header'
+import { Footer } from '@/features/navigation/ui/footer'
+import { MenuTabs } from '@/features/navigation/ui/menu-tabs'
+import { MobileSideBar } from '@/features/navigation/ui/mobile-sidebar'
 
 export default function MainLayout({ children }: { children: React.ReactNode }) {
   return (

@@ -1,8 +1,8 @@
 import './globals.css'
-import ThemeContext from '@/context/ThemeContext'
-import SidebarProvider from '@/context/SidebarContext'
-import GoToTop from '@/components/global/GoToTop'
-import { buildMeta, SITE_URL } from '@/helpers/seo'
+import { ThemeProvider } from '@/features/theme/state/theme-context'
+import { SidebarProvider } from '@/features/navigation/state/sidebar-context'
+import { GoToTop } from '@/shared/ui/go-to-top'
+import { buildMeta, SITE_URL } from '@/shared/utils/seo'
 
 export const metadata = buildMeta({
   title: 'Jean H. Messeroux | Senior Full Stack Developer',
@@ -42,12 +42,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
       </head>
       <body className='bg-white max-w-6xl relative m-auto min-h-screen flex flex-col justify-between dark:bg-slate-950 text-slate-700 dark:text-slate-400'>
-        <ThemeContext>
+        <ThemeProvider>
           <SidebarProvider>
             {children}
             <GoToTop />
           </SidebarProvider>
-        </ThemeContext>
+        </ThemeProvider>
       </body>
     </html>
   )

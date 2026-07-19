@@ -1,8 +1,8 @@
-import CallToAction from '@/components/portfolio/CallToAction'
-import { fetchAPI } from '@/helpers/api'
-import { buildMeta } from '@/helpers/seo'
-import { ProjectResponse } from '@/interfaces'
-import ProjectsFilter from './ProjectsFilter'
+import { CallToAction } from '@/features/hero/ui/call-to-action'
+import { fetchAPI } from '@/shared/api'
+import { buildMeta } from '@/shared/utils/seo'
+import { ProjectsFilter } from '@/features/projects/ui/projects-filter'
+import type { ProjectResponse } from '@/features/projects'
 
 export const metadata = buildMeta({
   title: 'Projects | Jean H. Messeroux',

@@ -1,6 +1,6 @@
 'use client'
-import FormError from '@/components/errors/FormError'
-import Input from '@/components/global/Input'
+import { FormError } from '@/shared/ui/form-error'
+import { Input } from '@/shared/ui/input'
 import React, { useState } from 'react'
 
 const DataDeletion = () => {

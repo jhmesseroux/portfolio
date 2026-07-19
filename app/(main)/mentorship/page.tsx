@@ -1,8 +1,7 @@
-import FadeInImage from '@/components/global/FadeInImage'
-import CheckIcon from '@/components/icons/CheckIcon'
-import ChevronRightIcon from '@/components/icons/ChevronRightIcon'
-import { cn } from '@/helpers'
-import { buildMeta } from '@/helpers/seo'
+import { FadeInImage } from '@/shared/ui/fade-in-image'
+import { CheckIcon, ChevronRightIcon } from '@/shared/icons'
+import { cn } from '@/shared/utils'
+import { buildMeta } from '@/shared/utils/seo'
 import Link from 'next/link'
 import React from 'react'
 
