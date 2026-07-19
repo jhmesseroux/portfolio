@@ -6,7 +6,7 @@ import { IProject } from '@/interfaces'
 import { cn, DOT } from '@/helpers'
 import CollapsibleTags from '../global/CollapsibleTags'
 import CollapsibleText from '../global/CollapsibleText'
-import { AnimatePresence, motion } from 'framer-motion'
+import { AnimatePresence, LazyMotion, domMax, m } from 'framer-motion'
 import SocialLink from './SocialLink'
 import CodeIcon from '../icons/coding/CodeIcon'
 import FadeInImage from '../global/FadeInImage'
@@ -31,6 +31,7 @@ const Projects = ({ data, showAll = false, headerRight, className, ...rest }: Pr
   }
 
   return (
+    <LazyMotion features={domMax} strict>
     <section {...rest} className={cn('p-3 md:p-4', className)} data-testid='projects-section'>
       <div className={cn(
         'flex items-center justify-between gap-3 flex-wrap mb-6 px-3 md:px-0',
@@ -54,7 +55,7 @@ const Projects = ({ data, showAll = false, headerRight, className, ...rest }: Pr
       <AnimatePresence mode='popLayout'>
       <div className={cn('projects grid grid-cols-1 md:grid-cols-2 gap-6', !showAll && 'lg:grid-cols-3')} id='projects'>
         {data.map((item) => (
-          <motion.div
+          <m.div
             key={item.id}
             layout
             initial={{ opacity: 0, scale: 0.95 }}
@@ -162,11 +163,12 @@ const Projects = ({ data, showAll = false, headerRight, className, ...rest }: Pr
               </div>
             </div>
           </div>
-          </motion.div>
+          </m.div>
         ))}
       </div>
       </AnimatePresence>
     </section>
+    </LazyMotion>
   )
 }
 

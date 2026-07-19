@@ -3,7 +3,7 @@ import React from 'react'
 import { cn } from '@/helpers'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { motion } from 'framer-motion'
+import { LazyMotion, domMax, m } from 'framer-motion'
 import StarIcon from '../icons/StarIcon'
 import BriefCaseIcon from '../icons/BriefCaseIcon'
 import CodeIcon from '../icons/coding/CodeIcon'
@@ -37,6 +37,7 @@ const MenuTabs = ({ className }: Props) => {
   }
 
   return (
+    <LazyMotion features={domMax} strict>
     <nav
       aria-label='Quick links'
       data-testid='menu-tabs'
@@ -57,7 +58,7 @@ const MenuTabs = ({ className }: Props) => {
             className='relative flex items-center gap-2 rounded-full px-3 py-2 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors'
           >
             {active && (
-              <motion.div
+              <m.div
                 layoutId='active-tab'
                 className='absolute inset-0 bg-gradient-to-r from-violet-500 to-pink-500 rounded-full shadow-sm'
                 transition={{ type: 'tween', duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
@@ -80,6 +81,7 @@ const MenuTabs = ({ className }: Props) => {
         <WhatsappIcon className='w-6 h-6 text-white' />
       </Link>
     </nav>
+    </LazyMotion>
   )
 }
 

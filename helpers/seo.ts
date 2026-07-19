@@ -1,10 +1,10 @@
 import type { Metadata } from 'next'
 
 export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://www.jhme.dev'
-export const SITE_NAME = 'Jean H. Messeroux Portfolio'
-export const AUTHOR = 'Jean Hilaire Messeroux'
-export const TWITTER_HANDLE = '@jhmesseroux'
-export const OG_IMAGE = '/assets/images/me.png'
+const SITE_NAME = 'Jean H. Messeroux Portfolio'
+const AUTHOR = 'Jean Hilaire Messeroux'
+const TWITTER_HANDLE = '@jhmesseroux'
+const OG_IMAGE = '/assets/images/me.png'
 
 interface BuildMetaArgs {
   title: string

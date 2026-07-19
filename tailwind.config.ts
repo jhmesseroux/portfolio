@@ -7,10 +7,7 @@ const config: Config = {
     extend: {
       colors: {
         brand: 'var(--brand-color)',
-        brand2: 'var(--brand-color-2)',
-        dark: 'var(--dark-color)',
-        darkbox: 'var(--dark-color-box)',
-        darktext: 'var(--dark-text)'
+        brand2: 'var(--brand-color-2)'
       },
       backgroundColor: {
         brand: 'var(--brand-color)',

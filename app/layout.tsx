@@ -36,11 +36,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang='en'>
       <head>
-        <link
-          rel='shortcut icon'
-          href='https://res.cloudinary.com/draxircbk/image/upload/v1669246932/jhmesseroux/JHM2022-01_e89izz.png'
-          type='image/x-icon'
-        />
         <script
           type='application/ld+json'
           dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}

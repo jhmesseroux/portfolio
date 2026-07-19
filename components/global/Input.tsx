@@ -1,4 +1,3 @@
-// import styles from './input.module.css'
 import { cn } from '@/helpers'
 import FormError from '../errors/FormError'
 import EyeIcon from '../icons/EyeIcon'
@@ -30,7 +29,7 @@ const Input = ({
   const baseClassName = `w-full px-2 py-[6px] border border-gray-300 dark:border-slate-800 hover:!border-brand focus:border-primary dark:focus:border-brand focus:border outline-none focus:outline-none bg-white dark:bg-slate-950 dark:text-slate-400  placeholder:text-slate-400 dark:placeholder:text-slate-600 disabled:cursor-not-allowed rounded `
 
   const checkBoxBaseClass =
-    'flex flex-row mb-4 w-full py-[6px] items-center gap-4 border border-gray-300 dark:border-dark2 hover:!border-primary focus:border-primary dark:focus:border-primary focus:border outline-none focus:outline-none px-2 rounded-md'
+    'flex flex-row mb-4 w-full py-[6px] items-center gap-4 border border-gray-300 dark:border-slate-800 hover:!border-primary focus:border-primary dark:focus:border-primary focus:border outline-none focus:outline-none px-2 rounded-md'
   return (
     <fieldset className={cn(props.type === 'checkbox' ? checkBoxBaseClass : 'flex flex-col mb-4 w-full relative', fieldsetClassName)}>
       {label && (
@@ -68,7 +67,6 @@ const Input = ({
       )}
 
       {templateExtra && <div className='items-end text-xs self-end text-primary'>{templateExtra()}</div>}
-      {/* TODO NO ANDA CUANDO HAY RESTRICCIONES...  (props.value == null || props.value == '') && */}
       {hasError.length > 0 && <FormError text={hasError || 'Campo obligatorio'} className='text-left my-0 p-0 pt-0.5' />}
     </fieldset>
   )

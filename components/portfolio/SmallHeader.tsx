@@ -6,7 +6,7 @@ import OpenModalButton from './OpenModalButton'
 import Navbar from './Navbar'
 import Link from 'next/link'
 import FadeInImage from '../global/FadeInImage'
-import { motion, AnimatePresence, LayoutGroup } from 'framer-motion'
+import { m, AnimatePresence, LayoutGroup, LazyMotion, domMax } from 'framer-motion'
 
 interface Props extends React.HTMLAttributes<HTMLElement> {}
 const SmallHeader = ({ className }: Props) => {
@@ -44,11 +44,12 @@ const SmallHeader = ({ className }: Props) => {
         className
       )}
     >
+      <LazyMotion features={domMax} strict>
       <LayoutGroup>
-        <motion.div layout className='flex items-center gap-2' data-testid='small-header-avatar'>
+        <m.div layout className='flex items-center gap-2' data-testid='small-header-avatar'>
           <AnimatePresence>
             {showAvatar && (
-              <motion.div
+              <m.div
                 key='header-avatar'
                 layout
                 initial={{ opacity: 0, scale: 0 }}
@@ -68,10 +69,10 @@ const SmallHeader = ({ className }: Props) => {
                     />
                   </div>
                 </Link>
-              </motion.div>
+              </m.div>
             )}
           </AnimatePresence>
-          <motion.div layout transition={{ duration: 0.4, ease: 'easeInOut' }} className='flex flex-col'>
+          <m.div layout transition={{ duration: 0.4, ease: 'easeInOut' }} className='flex flex-col'>
             <Link href='/'>
               <span className='truncate max-w-[170px] md:max-w-full'>Jean H. Messeroux</span>
             </Link>
@@ -89,9 +90,10 @@ const SmallHeader = ({ className }: Props) => {
                 </Link>
               </span>
             </span>
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
       </LayoutGroup>
+      </LazyMotion>
       <Navbar aria-label='Main navigation' ulClassName='flex-row' className='hidden md:flex mt-0' data-testid='small-header-nav' />
       <div className='flex items-center justify-center gap-x-2'>
         <ThemeSwitcher />

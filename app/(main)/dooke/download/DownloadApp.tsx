@@ -15,9 +15,7 @@ const DownloadApp = ({ className }: Props) => {
         <div className='flex items-center gap-x-1'>
           <GooglePlayIcon />
           <span>Google play</span>
-        </div>
-        {/* <DownloadIcon /> */}
-      </button>
+        </div>      </button>
       <button
         onClick={() => openDownloadLink('ios')}
         className='donation-button flex-auto rounded-md bg-blue-500 duration-700 transition-all hover:skew-y-1 hover:skew-x-1  shadow-1 dark:shadow py-[0.5rem]  text-white font-bold text-base flex  gap-x-2 items-center justify-center px-3 w-full '
@@ -25,9 +23,7 @@ const DownloadApp = ({ className }: Props) => {
         <div className='flex items-center gap-x-1'>
           <AppleIcon />
           <span>App Store</span>
-        </div>
-        {/* <DownloadIcon /> */}
-      </button>
+        </div>      </button>
     </div>
   )
 }

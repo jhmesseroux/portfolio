@@ -5,14 +5,22 @@ const GoToTop = () => {
   const [scrollProgress, setScrollProgress] = useState(0)
 
   useEffect(() => {
+    let ticking = false
+
     const handleScroll = () => {
-      const scrollTop = window.pageYOffset
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight
-      const scrollPercent = (scrollTop / docHeight) * 100
-      setScrollProgress(scrollPercent)
+      if (ticking) return
+      ticking = true
+      window.requestAnimationFrame(() => {
+        const scrollTop = window.pageYOffset
+        const docHeight = document.documentElement.scrollHeight - window.innerHeight
+        const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0
+        // only re-render when the visible progress actually changes
+        setScrollProgress((prev) => (Math.round(prev) === Math.round(scrollPercent) ? prev : scrollPercent))
+        ticking = false
+      })
     }
 
-    window.addEventListener('scroll', handleScroll)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 

@@ -17,14 +17,14 @@ const Avatar = ({ path, width = 40, height = 40, text, className }: Props) => {
         width={width}
         height={height}
         priority
-        className={cn('rounded-full min-w-[40px] min-h-[40px] max-w-[40px] max-h-[40px] dark:bg-dark1 shadow object-cover', className)}
+        className={cn('rounded-full min-w-[40px] min-h-[40px] max-w-[40px] max-h-[40px] dark:bg-slate-800 shadow object-cover', className)}
       />
     )
   return (
     <div
       style={{ width: width, height: height }}
       className={cn(
-        'rounded-full shadow-1  flex items-center justify-center border border-slate-200 dark:border-none  dark:bg-dark1 object-cover',
+        'rounded-full shadow-1  flex items-center justify-center border border-slate-200 dark:border-none  dark:bg-slate-800 object-cover',
         className
       )}
     >

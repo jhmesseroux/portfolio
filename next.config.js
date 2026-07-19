@@ -1,20 +1,13 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // allow image from other server
   images: {
+    formats: ['image/avif', 'image/webp'],
+    // hosts that actually serve portfolio images (API data + hardcoded org logos)
     remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'loremflickr.com',
-        port: '',
-        pathname: '/**',
-      },
-      {
-        protocol: 'https',
-        hostname: '**',
-        port: '',
-        pathname: '/**',
-      },
+      { protocol: 'https', hostname: 'res.cloudinary.com', pathname: '/**' },
+      { protocol: 'https', hostname: '**.r2.dev', pathname: '/**' },
+      { protocol: 'https', hostname: 'cdn.worldvectorlogo.com', pathname: '/**' },
+      { protocol: 'https', hostname: 'upload.wikimedia.org', pathname: '/**' },
     ],
   },
 }

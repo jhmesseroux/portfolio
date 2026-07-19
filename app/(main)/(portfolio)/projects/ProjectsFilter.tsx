@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useMemo, useState } from 'react'
 import { IProject } from '@/interfaces'
 import Projects from '@/components/portfolio/Projects'
 import { cn } from '@/helpers'
@@ -8,9 +8,15 @@ const levels = ['All', 'Advanced', 'Intermediate', 'Beginner'] as const
 
 const ProjectsFilter = ({ data }: { data: IProject[] }) => {
   const [filter, setFilter] = useState<string>('All')
-  const filtered = filter === 'All' ? data : data.filter((p) => p.level === filter)
+  const filtered = useMemo(() => (filter === 'All' ? data : data.filter((p) => p.level === filter)), [data, filter])
 
-  const getCount = (level: string) => level === 'All' ? data.length : data.filter((p) => p.level === level).length
+  const counts = useMemo(() => {
+    const byLevel: Record<string, number> = { All: data.length }
+    for (const level of levels) {
+      if (level !== 'All') byLevel[level] = data.filter((p) => p.level === level).length
+    }
+    return byLevel
+  }, [data])
 
   const applyFilter = (level: string) => {
     setFilter(level)
@@ -34,7 +40,7 @@ const ProjectsFilter = ({ data }: { data: IProject[] }) => {
           >
             {levels.map((level) => (
               <option key={level} value={level}>
-                {level} ({getCount(level)})
+                {level} ({counts[level]})
               </option>
             ))}
           </select>
@@ -53,7 +59,7 @@ const ProjectsFilter = ({ data }: { data: IProject[] }) => {
                     : 'border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-400 hover:border-violet-400 hover:text-violet-500'
                 )}
               >
-                {level} <span className={cn('ml-0.5', filter === level ? 'text-white/70' : 'text-slate-400 dark:text-slate-500')}>({getCount(level)})</span>
+                {level} <span className={cn('ml-0.5', filter === level ? 'text-white/70' : 'text-slate-400 dark:text-slate-500')}>({counts[level]})</span>
               </button>
             ))}
           </div>

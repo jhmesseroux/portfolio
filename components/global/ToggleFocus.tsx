@@ -79,12 +79,23 @@ const ToggleFocus = ({
   useEffect(() => {
     if (isOpen) {
       updatePosition()
-      window.addEventListener('scroll', updatePosition)
-      window.addEventListener('resize', updatePosition)
+
+      let ticking = false
+      const scheduleUpdate = () => {
+        if (ticking) return
+        ticking = true
+        window.requestAnimationFrame(() => {
+          updatePosition()
+          ticking = false
+        })
+      }
+
+      window.addEventListener('scroll', scheduleUpdate, { passive: true })
+      window.addEventListener('resize', scheduleUpdate)
 
       return () => {
-        window.removeEventListener('scroll', updatePosition)
-        window.removeEventListener('resize', updatePosition)
+        window.removeEventListener('scroll', scheduleUpdate)
+        window.removeEventListener('resize', scheduleUpdate)
       }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
