@@ -1,4 +1,4 @@
-import { SquareLoading } from '@/components'
+import { SquareLoading } from '@/shared/ui/square-loading'
 import React from 'react'
 
 const Loading = () => {

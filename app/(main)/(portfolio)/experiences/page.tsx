@@ -1,8 +1,8 @@
-import CallToAction from '@/components/portfolio/CallToAction'
-import Experiences from '@/components/portfolio/Experiences'
-import { fetchAPI } from '@/helpers/api'
-import { ExperienceResponses } from '@/interfaces'
-import { buildMeta } from '@/helpers/seo'
+import { CallToAction } from '@/features/hero/ui/call-to-action'
+import { Experiences } from '@/features/experiences/ui/experiences'
+import type { ExperienceResponses } from '@/features/experiences'
+import { fetchAPI } from '@/shared/api'
+import { buildMeta } from '@/shared/utils/seo'
 
 export const metadata = buildMeta({
   title: 'Experiences | Jean H. Messeroux',

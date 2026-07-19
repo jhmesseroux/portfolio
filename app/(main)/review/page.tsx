@@ -1,5 +1,5 @@
 import { Suspense } from 'react'
-import ReviewForm from './ReviewForm'
+import { ReviewForm } from '@/features/reviews/ui/review-form'
 
 const AddReview = () => {
   return (

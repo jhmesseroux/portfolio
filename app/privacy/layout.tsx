@@ -1,6 +1,6 @@
 import Link from 'next/link'
-import FadeInImage from '@/components/global/FadeInImage'
-import ThemeSwitcher from '@/components/ThemeSwitcher'
+import { FadeInImage } from '@/shared/ui/fade-in-image'
+import { ThemeSwitcher } from '@/features/theme/ui/theme-switcher'
 
 export default function PrivacyLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -10,7 +10,7 @@ export default function PrivacyLayout({ children }: { children: React.ReactNode 
           <Link href='/' className='flex items-center gap-3' data-testid='privacy-header-home-link'>
             <div className='avatar-ring avatar-ring-sm rounded-full'>
               <FadeInImage
-                path='/assets/images/me.png'
+                path='/assets/images/me.webp'
                 imageAndBoxClassName='aspect-square rounded-full w-[40px] h-[40px]'
                 imageClassName='rounded-full'
                 alt='Avatar Jn. H. Messeroux'

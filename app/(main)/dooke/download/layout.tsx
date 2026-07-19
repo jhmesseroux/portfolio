@@ -1,4 +1,4 @@
-import { buildMeta } from '@/helpers/seo'
+import { buildMeta } from '@/shared/utils/seo'
 
 export const metadata = buildMeta({
   title: 'Download Dooke App | Jean H. Messeroux',

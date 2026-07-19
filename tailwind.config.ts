@@ -1,16 +1,13 @@
 import type { Config } from 'tailwindcss'
 
 const config: Config = {
-  content: ['./pages/**/*.{js,ts,jsx,tsx,mdx}', './components/**/*.{js,ts,jsx,tsx,mdx}', './app/**/*.{js,ts,jsx,tsx,mdx}'],
+  content: ['./app/**/*.{js,ts,jsx,tsx,mdx}', './features/**/*.{js,ts,jsx,tsx,mdx}', './shared/**/*.{js,ts,jsx,tsx,mdx}'],
   darkMode: ['class'],
   theme: {
     extend: {
       colors: {
         brand: 'var(--brand-color)',
-        brand2: 'var(--brand-color-2)',
-        dark: 'var(--dark-color)',
-        darkbox: 'var(--dark-color-box)',
-        darktext: 'var(--dark-text)'
+        brand2: 'var(--brand-color-2)'
       },
       backgroundColor: {
         brand: 'var(--brand-color)',

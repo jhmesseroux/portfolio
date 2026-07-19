@@ -1,4 +1,4 @@
-import { buildMeta } from '@/helpers/seo'
+import { buildMeta } from '@/shared/utils/seo'
 import Link from 'next/link'
 import React from 'react'
 
